@@ -185,5 +185,33 @@ var fr=0;function loop(){fr++;if(!(small&&(fr&1)))for(var i=0;i<FL.length;i++)if
 if(!reduced)requestAnimationFrame(loop);
 })();
 </script>
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <p>We use cookies to improve your experience and analyze site traffic. Read our <a href="legal.html">Legal &amp; Privacy</a> page to learn more.</p>
+  <div class="ck-actions">
+    <button type="button" class="ck-decline" id="ck-decline">Decline</button>
+    <button type="button" class="ck-accept" id="ck-accept">Accept</button>
+  </div>
+</div>
+<script>
+(function(){
+  try{
+    var KEY='aventis-cookie-consent';
+    var saved=localStorage.getItem(KEY);
+    var banner=document.getElementById('cookie-banner');
+    if(!banner) return;
+    if(!saved){
+      setTimeout(function(){ banner.classList.add('show'); }, 600);
+    }
+    function setConsent(v){
+      try{ localStorage.setItem(KEY, v); }catch(e){}
+      banner.classList.remove('show');
+    }
+    var a=document.getElementById('ck-accept'), d=document.getElementById('ck-decline');
+    if(a) a.addEventListener('click', function(){ setConsent('accepted'); });
+    if(d) d.addEventListener('click', function(){ setConsent('declined'); });
+  }catch(e){}
+})();
+</script>
+
 </body>
 </html>
