@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aventis Technology | Customer Experience, Engineered at Altitude</title>
+<meta name="description" content="Aventis Technology is a Singapore digital experience and engineering partner. We design, build and operate customer data platforms, journeys, super apps, wallets, payments and dynamic pricing for Asia's most ambitious brands.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="%233B66F6"/><path d="M14 46 L32 16 L50 46 L41 46 L32 30 L28 37 L25 33 Z" fill="white"/></svg>'>
+<style>
+:root{
+  --bg:#FFFFFF;
+  --bg-soft:#F5F8FE;
+  --panel:#FFFFFF;
+  --navy:#0A1226;
+  --navy-2:#101B3A;
+  --blue:#3B66F6;
+  --blue-soft:#6EA8FF;
+  --cyan:#2E8FE8;
+  --ink:#0B1120;
+  --muted:#5A6A8C;
+  --muted-2:#8FA0C0;
+  --line:#E7EDF8;
+  --line-strong:#D5DFF1;
+  --display:'Switzer','Inter',system-ui,-apple-system,sans-serif;
+  --body:'Switzer','Inter',system-ui,-apple-system,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--blue);color:#fff}
+img,svg,canvas{max-width:100%}
+
+/* ---------- Preloader ---------- */
+#loader{
+  position:fixed;inset:0;z-index:1000;background:var(--bg);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:22px;
+  transition:opacity .7s var(--ease),visibility .7s;
+}
+#loader.done{opacity:0;visibility:hidden}
+#loader svg{width:64px;height:64px;animation:pulse 1.4s ease-in-out infinite}
+#loader .alt-read{font-family:var(--display);font-weight:500;letter-spacing:.28em;font-size:12px;color:var(--muted-2);text-transform:uppercase}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.92);opacity:.7}}
+
+/* ---------- Altitude meter (signature) ---------- */
+#altimeter{
+  position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:90;
+  display:flex;flex-direction:column;align-items:center;gap:12px;
+  font-family:var(--display);font-size:11px;letter-spacing:.22em;color:var(--muted-2);
+  pointer-events:none;
+}
+#altimeter .track{width:2px;height:130px;background:var(--line-strong);position:relative;overflow:hidden;border-radius:2px}
+#altimeter .track i{position:absolute;left:0;top:0;width:100%;background:var(--blue);display:block;height:0%}
+#altimeter .val{writing-mode:vertical-rl;text-orientation:mixed}
+@media(max-width:900px){#altimeter{display:none}}
+
+/* ---------- Cursor ---------- */
+#cursor{position:fixed;top:0;left:0;width:10px;height:10px;border-radius:50%;background:var(--blue);pointer-events:none;z-index:999;transform:translate(-50%,-50%);transition:width .25s,height .25s,opacity .3s;opacity:0;mix-blend-mode:multiply}
+#cursor.on{opacity:.75}
+#cursor.grow{width:52px;height:52px;opacity:.25}
+@media(hover:none){#cursor{display:none}}
+
+/* ---------- Nav ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px 48px;
+  transition:background .4s,backdrop-filter .4s,padding .4s,border-color .4s;
+  border-bottom:1px solid transparent;
+}
+nav::before{content:"";position:absolute;inset:0;background:rgba(255,255,255,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);opacity:0;transition:opacity .4s;pointer-events:none;z-index:-1}
+nav.scrolled::before{opacity:1}
+nav.scrolled{padding:14px 48px;border-color:var(--line)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand svg{width:38px;height:38px;flex:none}
+.brand .wm{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.14em;line-height:1.15;text-transform:uppercase}
+.brand .wm b{display:block;font-weight:700}
+.nav-links{display:flex;gap:34px;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.02em;transition:color .25s}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--ink)}
+.nav-links a.btn,.nav-links a.btn:hover,.nav-links a.btn:focus-visible{color:#fff}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.04em;
+  color:#fff;background:var(--blue);border:1px solid var(--blue);
+  padding:12px 24px;border-radius:100px;text-decoration:none;
+  transition:transform .3s var(--ease),box-shadow .3s,background .3s;
+}
+.btn:hover,.btn:focus-visible{transform:translateY(-2px);box-shadow:0 14px 36px rgba(59,102,246,.35);background:#2f57e0}
+.btn.ghost{background:transparent;border-color:var(--line-strong);color:var(--ink)}
+.btn.ghost:hover{border-color:var(--ink);box-shadow:none;background:rgba(11,17,32,.03)}
+.btn .arr{transition:transform .3s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+#menu-toggle{display:none;background:none;border:0;color:var(--ink);font-size:26px;cursor:pointer}
+@media(max-width:900px){
+  nav{padding:16px 20px}
+  nav.scrolled{padding:12px 20px}
+  .nav-links{position:fixed;inset:0;height:100dvh;background:var(--bg);flex-direction:column;justify-content:center;gap:30px;transform:translateY(-102%);visibility:hidden;pointer-events:none;transition:transform .5s var(--ease),visibility 0s .5s}
+  .nav-links.open{transform:translateY(0);visibility:visible;pointer-events:auto;transition:transform .5s var(--ease),visibility 0s 0s}
+  .nav-links a{font-size:26px;font-family:var(--display)}
+  #menu-toggle{display:block;z-index:110;position:relative}
+}
+
+/* ---------- Hero ---------- */
+header{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:linear-gradient(180deg,#FFFFFF 0%,#F2F7FF 100%)}
+#terrain{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero-fade{position:absolute;inset:0;background:
+  radial-gradient(1100px 560px at 72% 18%, rgba(59,102,246,.10), transparent 62%),
+  linear-gradient(to bottom, rgba(255,255,255,.55), rgba(255,255,255,0) 38%, rgba(255,255,255,.92) 94%);pointer-events:none}
+.hero-inner{position:relative;z-index:2;padding:150px 48px 120px;max-width:1280px;margin:0 auto;width:100%}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:34px;
+}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--blue)}
+h1{
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(42px,7.6vw,104px);
+  line-height:1.03;letter-spacing:-.035em;
+  max-width:13ch;color:var(--ink);
+}
+h1 .ln{display:block;overflow:hidden}
+h1 .ln span{display:block;transform:translateY(110%);transition:transform 1s var(--ease)}
+body.ready h1 .ln span{transform:translateY(0)}
+h1 .ln:nth-child(2) span{transition-delay:.1s}
+h1 .ln:nth-child(3) span{transition-delay:.2s}
+h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1.5px var(--blue)}
+.hero-sub{
+  margin-top:34px;max-width:54ch;color:var(--muted);font-size:clamp(16px,1.4vw,19px);
+  opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease) .45s,transform .9s var(--ease) .45s;
+}
+body.ready .hero-sub{opacity:1;transform:none}
+.hero-cta{display:flex;gap:16px;margin-top:44px;flex-wrap:wrap;opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease) .6s,transform .9s var(--ease) .6s}
+body.ready .hero-cta{opacity:1;transform:none}
+.scroll-cue{position:absolute;bottom:34px;left:48px;z-index:2;display:flex;align-items:center;gap:14px;font-family:var(--display);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted-2)}
+.scroll-cue .stem{width:1px;height:44px;background:var(--line-strong);position:relative;overflow:hidden}
+.scroll-cue .stem::after{content:"";position:absolute;left:0;top:-40%;width:100%;height:40%;background:var(--blue);animation:drip 2s var(--ease) infinite}
+@keyframes drip{to{top:110%}}
+@media(max-width:900px){.hero-inner{padding:130px 20px 120px}.scroll-cue{left:20px}}
+
+/* ---------- Ticker ---------- */
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:var(--bg-soft)}
+.ticker .lane{display:flex;width:max-content;animation:scrollx 34s linear infinite;padding:20px 0}
+.ticker:hover .lane{animation-play-state:paused}
+.ticker span{font-family:var(--display);font-weight:500;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding:0 32px;white-space:nowrap;display:flex;align-items:center;gap:32px}
+.ticker span::after{content:"◆";font-size:8px;color:var(--blue)}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+
+/* ---------- Shared section scaffolding ---------- */
+section{position:relative;padding:130px 48px}
+.wrap{max-width:1280px;margin:0 auto}
+.sec-tag{display:flex;align-items:center;gap:12px;font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--blue);margin-bottom:26px}
+.sec-tag::before{content:"";width:34px;height:1px;background:var(--blue)}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(32px,4.6vw,62px);line-height:1.09;letter-spacing:-.028em;max-width:20ch;color:var(--ink)}
+.lede{color:var(--muted);max-width:58ch;margin-top:22px;font-size:clamp(16px,1.3vw,19px)}
+.rv{opacity:0;transform:translateY(36px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media(max-width:900px){section{padding:84px 20px}}
+
+/* ---------- Manifesto ---------- */
+.manifesto p{
+  font-family:var(--display);font-weight:500;
+  font-size:clamp(25px,3.6vw,52px);line-height:1.22;letter-spacing:-.01em;
+  max-width:26ch;
+}
+.manifesto .w{color:rgba(11,17,32,.16);transition:color .5s ease}
+.manifesto .w.lit{color:var(--ink)}
+.manifesto .w.key.lit{color:var(--blue)}
+
+/* ---------- Pillars ---------- */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:70px;border-radius:20px;overflow:hidden}
+.pillar{background:var(--bg);padding:46px 38px 52px;position:relative;overflow:hidden;transition:background .4s}
+.pillar:hover{background:var(--bg-soft)}
+.pillar .glyph{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.3em;color:var(--blue);display:block;margin-bottom:60px}
+.pillar h3{font-family:var(--display);font-weight:600;font-size:28px;margin-bottom:14px;letter-spacing:-.01em}
+.pillar p{color:var(--muted);font-size:15.5px}
+.pillar .peak{position:absolute;right:-20px;bottom:-26px;width:150px;height:110px;opacity:.10;transition:opacity .4s,transform .6s var(--ease)}
+.pillar:hover .peak{opacity:.28;transform:translateY(-8px)}
+@media(max-width:900px){.pillars{grid-template-columns:1fr}.pillar{padding:36px 26px 42px}.pillar .glyph{margin-bottom:36px}}
+
+/* ---------- Services (sticky stack) ---------- */
+#services{padding-bottom:60px;background:var(--bg-soft)}
+.svc-stack{margin-top:80px}
+.svc{
+  position:sticky;top:90px;
+  background:var(--panel);
+  border:1px solid var(--line);border-radius:22px;
+  padding:54px 58px;margin-bottom:26px;
+  display:grid;grid-template-columns:1fr 1.4fr;gap:60px;
+  min-height:360px;align-content:center;
+  box-shadow:0 -18px 50px rgba(23,42,96,.08);
+}
+.svc .idx{font-family:var(--display);font-weight:500;font-size:13px;letter-spacing:.3em;color:var(--blue);margin-bottom:22px;display:block}
+.svc h3{font-family:var(--display);font-weight:600;font-size:clamp(24px,2.6vw,40px);line-height:1.1;letter-spacing:-.015em}
+.svc .body p{color:var(--muted);margin-bottom:26px;font-size:16.5px}
+.svc .chips{display:flex;flex-wrap:wrap;gap:10px}
+.svc .chips i{font-style:normal;font-family:var(--display);font-weight:500;font-size:12.5px;letter-spacing:.08em;color:var(--blue);border:1px solid rgba(59,102,246,.3);padding:8px 16px;border-radius:100px;background:rgba(59,102,246,.06)}
+@media(max-width:900px){
+  .svc{position:relative;top:auto;grid-template-columns:1fr;padding:32px 24px;gap:22px;min-height:0;box-shadow:0 10px 30px rgba(23,42,96,.06)}
+  .svc-stack{margin-top:50px}
+}
+
+/* ---------- Products (deep navy band) ---------- */
+.snow{background:linear-gradient(170deg,var(--navy) 0%,var(--navy-2) 100%);color:#EAF0FA;border-radius:44px;margin:0 26px;overflow:hidden}
+.snow .sec-tag{color:var(--blue-soft)}
+.snow .sec-tag::before{background:var(--blue-soft)}
+.snow h2{color:#fff}
+.snow .lede{color:#A5B2CE}
+.snowline-label{display:flex;align-items:center;gap:18px;font-family:var(--display);font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--muted-2);padding:60px 48px 26px;max-width:1376px;margin:0 auto}
+.snowline-label::before,.snowline-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line-strong))}
+.prod-intro{margin-bottom:90px}
+.prod-name{font-family:var(--display);font-weight:600;font-size:clamp(28px,3.6vw,54px);line-height:1.08;letter-spacing:-.015em;color:#fff}
+.prod-kicker{font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--blue-soft);display:inline-flex;align-items:center;gap:10px;margin-bottom:20px}
+.prod-kicker i{font-style:normal;background:rgba(110,168,255,.12);border:1px solid rgba(110,168,255,.35);padding:5px 12px;border-radius:100px;white-space:nowrap}
+.prod-row{margin-top:130px}
+.pulse-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center;margin-top:40px}
+.pulse-grid.flip > :first-child{order:2}
+.pulse-grid.flip > :last-child{order:1}
+.pulse-feats{margin-top:38px;display:grid;gap:0}
+.pulse-feats .f{display:flex;gap:18px;padding:20px 0;border-top:1px solid rgba(165,178,206,.22);align-items:flex-start}
+.pulse-feats .f:last-child{border-bottom:1px solid rgba(165,178,206,.22)}
+.pulse-feats .f b{font-family:var(--display);font-weight:600;font-size:17px;display:block;margin-bottom:4px;color:#fff}
+.pulse-feats .f p{color:#A5B2CE;font-size:15px}
+.pulse-feats .dot{width:9px;height:9px;border-radius:50%;background:var(--blue-soft);flex:none;margin-top:8px}
+/* Product mock cards (stay white, they glow on navy) */
+.mock{background:#fff;border:1px solid rgba(255,255,255,.2);border-radius:20px;box-shadow:0 40px 90px rgba(0,0,0,.4);overflow:hidden;transform:rotate(0.6deg);color:var(--ink)}
+.mock.tilt-l{transform:rotate(-0.6deg)}
+.mock .bar{display:flex;gap:7px;padding:14px 18px;border-bottom:1px solid #EDF1FA}
+.mock .bar i{width:10px;height:10px;border-radius:50%;background:#E4EAF6}
+.mock .bar i:first-child{background:var(--blue)}
+.mock .inner{padding:26px 28px 30px}
+.mock .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}
+.mock .kpi{border:1px solid #EDF1FA;border-radius:12px;padding:14px 16px}
+.mock .kpi small{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#8FA0C0;font-weight:700;display:block}
+.mock .kpi b{display:block;font-family:var(--display);font-weight:600;font-size:24px;color:#0B1120;margin-top:4px;white-space:nowrap}
+.mock .kpi b em{font-style:normal;font-size:13px;color:#1FA971;margin-left:6px}
+.mock svg{width:100%;height:auto;display:block}
+/* Prezio mock */
+.pz-rows{display:grid;gap:10px}
+.pz-row{display:grid;grid-template-columns:1.1fr 2fr .9fr;align-items:center;gap:14px;border:1px solid #EDF1FA;border-radius:12px;padding:12px 16px}
+.pz-row small{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8FA0C0;font-weight:700}
+.pz-bar{height:8px;border-radius:100px;background:#EEF2FB;position:relative;overflow:hidden}
+.pz-bar i{position:absolute;left:0;top:0;bottom:0;border-radius:100px;background:linear-gradient(90deg,#6EA8FF,#3B66F6)}
+.pz-price{font-family:var(--display);font-weight:600;font-size:17px;color:#0B1120;text-align:right}
+.pz-price em{font-style:normal;display:block;font-size:11px;color:#8FA0C0;text-decoration:line-through;font-weight:500}
+.pz-foot{margin-top:18px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #EDF1FA;padding-top:16px;gap:10px;flex-wrap:wrap}
+.pz-foot small{font-size:11px;color:#8FA0C0;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.pz-foot .ok{color:#1FA971}
+@media(max-width:900px){
+  .snow{margin:0 10px;border-radius:26px}
+  .snowline-label{padding:44px 20px 16px}
+  .pulse-grid{grid-template-columns:1fr;gap:40px}
+  .pulse-grid.flip > :first-child{order:1}
+  .pulse-grid.flip > :last-child{order:2}
+  .prod-row{margin-top:84px}
+  .prod-intro{margin-bottom:56px}
+  .mock,.mock.tilt-l{transform:none}
+  .mock .inner{padding:20px 16px 22px}
+  .mock .kpis{gap:8px}
+  .mock .kpi{padding:10px 10px}
+  .mock .kpi b{font-size:18px}
+  .mock .kpi small{font-size:9px;letter-spacing:.04em}
+  .pz-row{grid-template-columns:1fr auto;grid-template-areas:"label price" "bar bar";padding:10px 12px;gap:8px}
+  .pz-row small{grid-area:label}
+  .pz-bar{grid-area:bar}
+  .pz-price{grid-area:price;font-size:15px}
+}
+
+/* ---------- Trust & security (certification) ---------- */
+#security{padding:0 48px}
+.cert-card{
+  display:flex;align-items:center;gap:44px;
+  border:1px solid var(--line);border-radius:28px;
+  padding:48px 54px;background:var(--bg-soft);
+}
+.cert-card img{width:112px;height:112px;flex:none;border-radius:50%;box-shadow:0 18px 40px rgba(23,42,96,.14)}
+.cert-card h3{font-family:var(--display);font-weight:600;font-size:26px;letter-spacing:-.015em;color:var(--ink);margin-bottom:12px}
+.cert-card p{color:var(--muted);font-size:15.5px;max-width:60ch}
+@media(max-width:900px){
+  #security{padding:0 20px}
+  .cert-card{flex-direction:column;text-align:center;padding:38px 28px;gap:24px}
+  .cert-card p{margin-left:auto;margin-right:auto}
+}
+
+/* ---------- Signature: pinned ascent ---------- */
+.ascent{padding:0;height:540vh;position:relative;background:linear-gradient(180deg,#FFFFFF 0%,#F4F8FF 55%,#FFFFFF 100%)}
+.ascent-sticky{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center;overflow:hidden;padding:0 48px}
+.ascent-grid{max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
+.asc-alt{display:flex;align-items:baseline;gap:10px;font-family:var(--display);font-weight:600;letter-spacing:-.03em;color:var(--ink);line-height:1}
+.asc-alt #asc-num{font-size:clamp(56px,8vw,110px);font-variant-numeric:tabular-nums}
+.asc-alt span.u{font-size:clamp(18px,2vw,26px);color:var(--muted-2);letter-spacing:.06em}
+.asc-prog{margin:22px 0 34px;height:3px;background:var(--line);border-radius:3px;overflow:hidden;max-width:340px}
+.asc-prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue-soft),var(--blue));border-radius:3px}
+.asc-steps{position:relative;min-height:240px}
+.asc-step{position:absolute;inset:0;opacity:0;transform:translateY(24px);transition:opacity .55s var(--ease),transform .55s var(--ease);pointer-events:none}
+.asc-step.on{opacity:1;transform:none;pointer-events:auto}
+.asc-step .mark{font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:16px}
+.asc-step h3{font-family:var(--display);font-weight:600;font-size:clamp(28px,3.4vw,46px);line-height:1.06;letter-spacing:-.02em;margin-bottom:16px}
+.asc-step p{color:var(--muted);font-size:clamp(15px,1.25vw,18px);max-width:42ch}
+.asc-dots{display:flex;gap:8px;margin-top:34px}
+.asc-dots b{width:26px;height:3px;border-radius:3px;background:var(--line-strong);transition:background .4s,width .4s}
+.asc-dots b.on{background:var(--blue);width:44px}
+.asc-vis{position:relative}
+.asc-vis svg{width:100%;height:auto;display:block;overflow:visible}
+#asc-route{stroke-linecap:round}
+#climber{transition:none}
+.wp{transition:r .4s var(--ease),fill .4s,opacity .4s}
+@media(max-width:900px){
+  .ascent{height:480vh}
+  .ascent-sticky{padding:0 20px}
+  .ascent-grid{grid-template-columns:1fr;gap:26px}
+  .asc-vis{order:-1}
+  .asc-steps{min-height:210px}
+  .asc-prog{margin:14px 0 22px}
+}
+
+/* ---------- Proof band ---------- */
+.proof{background:var(--ink);color:#fff;padding:110px 48px}
+.proof .sec-tag{color:var(--blue-soft)}
+.proof .sec-tag::before{background:var(--blue-soft)}
+.proof h2{color:#fff}
+.proof .lede{color:#A5B2CE}
+.pf-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(165,178,206,.22);border:1px solid rgba(165,178,206,.22);border-radius:20px;overflow:hidden;margin-top:64px}
+.pf{background:var(--ink);padding:40px 32px}
+.pf b{display:block;font-family:var(--display);font-weight:600;font-size:clamp(38px,4.6vw,60px);letter-spacing:-.03em;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+.pf small{display:block;margin-top:14px;color:#A5B2CE;font-size:14.5px;letter-spacing:.01em}
+@media(max-width:900px){.proof{padding:80px 20px}.pf-grid{grid-template-columns:1fr 1fr}.pf{padding:28px 20px}}
+
+/* ---------- Industries ---------- */
+.inds{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:70px}
+.ind{
+  border:1px solid var(--line);border-radius:20px;padding:44px 40px;
+  background:var(--bg);
+  transition:border-color .35s,transform .5s var(--ease),box-shadow .35s;position:relative;overflow:hidden;
+}
+.ind:hover{border-color:rgba(59,102,246,.45);transform:translateY(-5px);box-shadow:0 24px 50px rgba(23,42,96,.08)}
+.ind h3{font-family:var(--display);font-weight:600;font-size:24px;margin-bottom:12px}
+.ind p{color:var(--muted);font-size:15.5px;max-width:44ch}
+.ind .tag{font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:28px}
+@media(max-width:900px){.inds{grid-template-columns:1fr}.ind{padding:32px 24px}}
+
+/* ---------- Operate model ---------- */
+.ops{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:70px}
+.op{border:1px solid var(--line);border-radius:20px;padding:40px 34px;background:var(--bg-soft);position:relative}
+.op::before{content:"";position:absolute;top:0;left:34px;right:34px;height:2px;background:linear-gradient(90deg,var(--blue),transparent);border-radius:2px}
+.op .lvl{font-family:var(--display);font-weight:700;font-size:44px;letter-spacing:-.02em;color:transparent;-webkit-text-stroke:1.2px var(--blue);display:block;margin-bottom:18px}
+.op h3{font-family:var(--display);font-weight:600;font-size:20px;margin-bottom:10px}
+.op p{color:var(--muted);font-size:15px}
+.ops-note{margin-top:34px;color:var(--muted);font-size:15px;display:flex;align-items:center;gap:12px}
+.ops-note::before{content:"";width:9px;height:9px;border-radius:50%;background:#1FA971;box-shadow:0 0 0 6px rgba(31,169,113,.14);flex:none;animation:blink 2.2s ease-in-out infinite}
+@keyframes blink{50%{opacity:.4}}
+@media(max-width:900px){.ops{grid-template-columns:1fr}.op{padding:32px 26px}}
+
+/* ---------- CTA ---------- */
+.cta{padding:170px 48px;text-align:center;position:relative;overflow:hidden;background:linear-gradient(180deg,#FFFFFF 0%,#EFF5FF 100%)}
+.cta::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 50% 115%,rgba(59,102,246,.16),transparent 70%)}
+.cta h2{max-width:none;margin:0 auto;font-size:clamp(40px,7vw,96px)}
+.cta h2 em{font-style:normal;color:transparent;-webkit-text-stroke:1.5px var(--blue)}
+.cta .lede{margin:26px auto 0;text-align:center}
+.cta .btn{margin-top:48px;font-size:16px;padding:18px 34px;max-width:100%;overflow-wrap:anywhere}
+.cta .wrap{position:relative;z-index:1}
+@media(max-width:900px){.cta{padding:110px 20px}}
+
+/* ---------- About (editorial) ---------- */
+#about{background:linear-gradient(180deg,#F7FAFF 0%,#FFFFFF 100%);border-top:1px solid var(--line)}
+.about-lead{max-width:24ch;font-size:clamp(28px,3.9vw,54px)}
+.about-cols{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:76px;border-top:1px solid var(--line-strong)}
+.ac{padding:38px 46px 0 0;position:relative}
+.ac + .ac{padding-left:46px;border-left:1px solid var(--line)}
+.ac .idx{font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.3em;color:var(--blue);display:block;margin-bottom:22px}
+.ac-lead{font-family:var(--display);font-weight:600;font-size:clamp(19px,1.7vw,24px);line-height:1.25;letter-spacing:-.01em;color:var(--ink);margin-bottom:16px}
+.ac p:last-child{color:var(--muted);font-size:16.5px;max-width:46ch}
+@media(max-width:900px){
+  .about-cols{grid-template-columns:1fr;margin-top:46px}
+  .ac{padding:30px 0 0}
+  .ac + .ac{padding-left:0;border-left:0;border-top:1px solid var(--line);margin-top:30px}
+}
+
+/* ---------- Leadership ---------- */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:64px}
+.tm{margin:0}
+.tm .ph{background:var(--bg-soft);border:1px solid var(--line);border-radius:18px;overflow:hidden;aspect-ratio:3/4;transition:border-color .4s,box-shadow .4s}
+.tm:hover .ph{border-color:rgba(59,102,246,.4);box-shadow:0 20px 44px rgba(23,42,96,.10)}
+.tm img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s var(--ease)}
+.tm:hover img{transform:scale(1.045)}
+.tm figcaption{margin-top:18px}
+.tm b{display:block;font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:-.015em}
+.tm span{display:block;color:var(--muted);font-size:14.5px;margin-top:2px}
+@media(max-width:900px){.team-grid{grid-template-columns:1fr 1fr;gap:18px;margin-top:44px}}
+
+/* ---------- CTA buttons ---------- */
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:48px}
+.cta-btns .btn{margin-top:0}
+
+/* ---------- Living field canvases ---------- */
+.fieldcv{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:0;opacity:0;transition:opacity 1.4s var(--ease) .2s}
+body.ready .fieldcv{opacity:1}
+.manifesto .wrap,.proof .wrap{position:relative;z-index:1}
+.manifesto,.proof{overflow:hidden}
+
+/* ---------- Footer ---------- */
+footer{border-top:1px solid var(--line);padding:70px 48px 40px;background:var(--bg-soft)}
+.foot{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:44px}
+.foot h4{font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--muted-2);margin-bottom:18px}
+.foot a{display:block;color:var(--ink);text-decoration:none;font-size:15px;margin-bottom:10px;opacity:.85;transition:opacity .2s,color .2s}
+.foot a:hover{opacity:1;color:var(--blue)}
+.foot .about p{color:var(--muted);font-size:14.5px;max-width:34ch;margin-top:16px}
+.legal{max-width:1280px;margin:56px auto 0;padding-top:26px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--muted-2);font-size:13px}
+
+
+
+/* ---------- Hero canvas reveal ---------- */
+
+/* ---------- Card spotlight ---------- */
+.pillar,.ind{--mx:50%;--my:50%}
+.pillar::after,.ind::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .45s;
+  background:radial-gradient(320px circle at var(--mx) var(--my), rgba(59,102,246,.10), transparent 70%);
+}
+.pillar:hover::after,.ind:hover::after{opacity:1}
+.pillar{position:relative}
+
+/* ---------- Aurora inside product band ---------- */
+.snow{position:relative}
+.aurora{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.aurora i{position:absolute;display:block;border-radius:50%;opacity:.55}
+.aurora i:nth-child(1){width:60vw;height:60vw;left:-18vw;top:-20vw;background:radial-gradient(circle,rgba(59,102,246,.34),transparent 66%);animation:drift1 26s ease-in-out infinite}
+.aurora i:nth-child(2){width:52vw;height:52vw;right:-16vw;bottom:-22vw;background:radial-gradient(circle,rgba(46,143,232,.28),transparent 66%);animation:drift2 32s ease-in-out infinite}
+@keyframes drift1{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(9%,7%,0) scale(1.14)}}
+@keyframes drift2{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-8%,-6%,0) scale(1.1)}}
+.snow .wrap{position:relative;z-index:1}
+
+/* ---------- Live mock behaviour ---------- */
+.mock{transition:box-shadow .6s var(--ease)}
+.pz-bar i{width:0;transition:width 1.1s var(--ease)}
+.pz-row{transition:border-color .5s,background .5s}
+.pz-row.flash{border-color:rgba(59,102,246,.55);background:rgba(59,102,246,.05)}
+.pz-price .pv{display:inline-block;transition:transform .35s var(--ease),color .35s}
+.pz-row.flash .pv{transform:translateY(-2px);color:var(--blue)}
+#pz-rate{font-variant-numeric:tabular-nums;color:var(--blue)}
+.mock .ping{transform-box:fill-box;transform-origin:center;animation:ping 2.8s ease-out infinite}
+@keyframes ping{0%{transform:scale(.55);opacity:.4}70%{transform:scale(2.6);opacity:0}100%{transform:scale(2.6);opacity:0}}
+#cx-line{transition:stroke-dashoffset 2s var(--ease) .2s}
+#cx-area{opacity:0;transition:opacity 1.2s ease 1s}
+.drawn #cx-area{opacity:1}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- Sticky service card stacking ---------- */
+.svc{transform-origin:top center;will-change:transform,opacity}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+  .rv,.hero-sub,.hero-cta,h1 .ln span,#terrain,#cx-area,.fieldcv{opacity:1 !important;transform:none !important}
+  #cx-line{stroke-dashoffset:0 !important}
+  .aurora i{animation:none !important}
+  .asc-step{position:relative;opacity:1 !important;transform:none !important}
+  .ascent{height:auto}
+  .ascent-sticky{position:relative;height:auto;padding:80px 20px}
+}
+</style>
+</head>
+<body>
+
+<div id="loader" aria-hidden="true">
+  <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="32" fill="#3B66F6"/><path d="M14 46 L32 16 L50 46 L41 46 L32 30 L28 37 L25 33 Z" fill="#fff"/></svg>
+  <div class="alt-read">ALT <span id="load-alt">0000</span> M</div>
+</div>
+
+<div id="cursor" aria-hidden="true"></div>
+
+<div id="altimeter" aria-hidden="true">
+  <span>ALT</span>
+  <div class="track"><i id="alt-fill"></i></div>
+  <span class="val"><span id="alt-val">0000</span> M</span>
+</div>
+
+<nav id="nav">
+  <a class="brand" href="#top" aria-label="Aventis Technology home">
+    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#3B66F6"/><path d="M14 46 L32 16 L50 46 L41 46 L32 30 L28 37 L25 33 Z" fill="#fff"/></svg>
+    <span class="wm">Aventis <b>Technology</b></span>
+  </a>
+  <button id="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+  <div class="nav-links" id="nav-links">
+    <a href="#approach">Approach</a>
+    <a href="#services">Services</a>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a class="btn" href="#contact">Start a project <span class="arr">→</span></a>
+  </div>
+</nav>
+
+<header id="top">
+  <canvas id="terrain" class="fieldcv" aria-hidden="true"></canvas>
+  <div class="hero-fade"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">Digital Experience &amp; Engineering · Singapore</div>
+    <h1 aria-label="Customer experience, engineered at altitude.">
+      <span class="ln"><span>Customer</span></span>
+      <span class="ln"><span>experience,</span></span>
+      <span class="ln"><span>engineered <em>at altitude.</em></span></span>
+    </h1>
+    <p class="hero-sub">Aventis Technology designs, builds and operates digital experience platforms for Asia's most ambitious brands, from real-time customer data and AI-orchestrated journeys to super apps, wallets and payments.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#contact">Start the climb <span class="arr">→</span></a>
+      <a class="btn ghost" href="#services">Explore what we do</a>
+    </div>
+  </div>
+  <div class="scroll-cue"><div class="stem"></div> Begin ascent</div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="lane" id="ticker-lane">
+    <span>Customer Data &amp; Identity</span><span>Journey Orchestration</span><span>Dynamic Pricing</span><span>Super Apps</span><span>Digital Wallets</span><span>Payment Gateways</span><span>Decision Intelligence</span><span>Personalization at Scale</span><span>Experience Analytics</span><span>Applied AI</span>
+  </div>
+</div>
+
+<section class="manifesto" id="manifesto">
+  <canvas class="fieldcv" id="fld-mani" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="sec-tag">Why we exist</div>
+    <p id="mani-text">Most platforms get implemented. Few get mastered. We stay on the mountain after launch, tuning data, journeys, pricing and payments until the experience actually performs.</p>
+  </div>
+</section>
+
+<section class="ascent" id="approach">
+  <div class="ascent-sticky">
+    <div class="ascent-grid">
+      <div>
+        <div class="sec-tag">The route</div>
+        <div class="asc-alt"><span id="asc-num">0</span><span class="u">M</span></div>
+        <div class="asc-prog"><i id="asc-bar"></i></div>
+        <div class="asc-steps">
+          <div class="asc-step on"><span class="mark">Base camp</span><h3>Discover what actually matters.</h3><p>We start with your customers and your commercials, not a product demo. Audit the estate, agree the outcomes, and size the prize before a line of anything gets built.</p></div>
+          <div class="asc-step"><span class="mark">Ascent</span><h3>Architect for the decade, not the demo.</h3><p>Data models, identity, consent, journey design and pricing logic, all engineered so the tenth use case is as easy to ship as the first.</p></div>
+          <div class="asc-step"><span class="mark">The ridge</span><h3>Build it all in one place.</h3><p>Platforms, integrations, apps and super apps, wallets and payment rails, all delivered by one accountable team instead of four vendors pointing at each other.</p></div>
+          <div class="asc-step"><span class="mark">High camp</span><h3>Launch in drops, not in a big bang.</h3><p>Migrate, test and go live channel by channel, so value lands in month two rather than month twelve, and risk stays small enough to carry.</p></div>
+          <div class="asc-step"><span class="mark">Summit</span><h3>Then we keep climbing.</h3><p>Always-on operations, standing experiments and continuous tuning. The platform gets sharper every quarter instead of ageing quietly.</p></div>
+        </div>
+        <div class="asc-dots" aria-hidden="true"><b class="on"></b><b></b><b></b><b></b><b></b></div>
+      </div>
+      <div class="asc-vis" aria-hidden="true">
+        <svg viewBox="0 0 1000 620" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="mg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#3B66F6" stop-opacity=".16"/>
+              <stop offset="1" stop-color="#3B66F6" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path d="M0 380 L90 330 L170 360 L260 285 L340 320 L430 235 L520 285 L610 200 L700 250 L790 140 L880 215 L960 265 L1000 240 L1000 620 L0 620 Z" fill="url(#mg)" stroke="rgba(59,102,246,.22)" stroke-width="1.2"/>
+          <path d="M0 450 L100 415 L190 440 L290 375 L380 405 L470 330 L560 370 L650 300 L740 250 L830 305 L920 360 L1000 335 L1000 620 L0 620 Z" fill="rgba(59,102,246,.05)" stroke="rgba(59,102,246,.3)" stroke-width="1.3"/>
+          <path d="M0 540 L120 505 L230 525 L330 470 L440 495 L540 440 L640 470 L740 400 L790 355 L860 420 L940 470 L1000 450 L1000 620 L0 620 Z" fill="#fff" stroke="rgba(59,102,246,.45)" stroke-width="1.6"/>
+          <path d="M70 560 C160 545, 200 505, 280 495 C360 485, 370 445, 450 430 C530 415, 540 375, 620 355 C690 338, 700 285, 760 235 C790 210, 780 175, 790 142"
+                fill="none" stroke="rgba(59,102,246,.18)" stroke-width="3" stroke-dasharray="6 9" stroke-linecap="round"/>
+          <path id="asc-route" d="M70 560 C160 545, 200 505, 280 495 C360 485, 370 445, 450 430 C530 415, 540 375, 620 355 C690 338, 700 285, 760 235 C790 210, 780 175, 790 142"
+                fill="none" stroke="#3B66F6" stroke-width="3.4"/>
+          <g id="wps">
+            <circle class="wp" cx="70" cy="560" r="6" fill="#C9D8FA"/>
+            <circle class="wp" cx="280" cy="495" r="6" fill="#C9D8FA"/>
+            <circle class="wp" cx="450" cy="430" r="6" fill="#C9D8FA"/>
+            <circle class="wp" cx="620" cy="355" r="6" fill="#C9D8FA"/>
+            <circle class="wp" cx="790" cy="142" r="6" fill="#C9D8FA"/>
+          </g>
+          <g id="climber">
+            <circle r="15" fill="#3B66F6" opacity=".16"/>
+            <circle r="7.5" fill="#3B66F6" stroke="#fff" stroke-width="2.5"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="rv"><div class="sec-tag">Services</div>
+    <h2>End-to-end capability. Enterprise-grade delivery.</h2>
+    <p class="lede">The strategy, architecture and engineering depth of a global consultancy across marketing technology, digital products and payments, delivered by a senior team that stays hands-on from first workshop to production.</p></div>
+
+    <div class="svc-stack">
+      <article class="svc">
+        <div><span class="idx">01 · DATA</span><h3>Customer data &amp; identity</h3></div>
+        <div class="body">
+          <p>One trusted profile for every customer: identity resolution, consent and governance, and real-time segmentation that activates across every channel at tens-of-millions scale.</p>
+          <div class="chips"><i>Unified Profiles</i><i>Identity Resolution</i><i>Consent &amp; Governance</i><i>Real-time Segmentation</i></div>
+        </div>
+      </article>
+      <article class="svc">
+        <div><span class="idx">02 · ENGAGEMENT</span><h3>Journey orchestration &amp; lifecycle marketing</h3></div>
+        <div class="body">
+          <p>Real-time, trigger-based journeys across app, email, push, SMS, web and paid. Decisioning, experimentation and frequency governance are designed into the journey, not bolted on.</p>
+          <div class="chips"><i>Real-time Journeys</i><i>Next-best-offer</i><i>Experimentation</i><i>Lifecycle Programs</i></div>
+        </div>
+      </article>
+      <article class="svc">
+        <div><span class="idx">03 · INTELLIGENCE</span><h3>Analytics &amp; decision intelligence</h3></div>
+        <div class="body">
+          <p>Cross-channel measurement on the full customer journey: attribution, value dashboards and holdout-based incrementality, so every program proves what it actually earned.</p>
+          <div class="chips"><i>Journey Analytics</i><i>Attribution</i><i>Incrementality</i><i>Executive Dashboards</i></div>
+        </div>
+      </article>
+      <article class="svc">
+        <div><span class="idx">04 · CONTENT</span><h3>Content &amp; personalization at scale</h3></div>
+        <div class="body">
+          <p>Content supply chains that keep pace with one-to-one marketing: componentized design systems, dynamic content assembly and generative workflows with brand guardrails.</p>
+          <div class="chips"><i>Design Systems</i><i>Dynamic Content</i><i>Generative Workflows</i><i>Brand Guardrails</i></div>
+        </div>
+      </article>
+      <article class="svc">
+        <div><span class="idx">05 · ENGINEERING</span><h3>Apps, wallets &amp; digital platforms</h3></div>
+        <div class="body">
+          <p>Full-stack product engineering beyond martech: consumer apps and super apps, digital wallets, payment gateway integrations and the platform architecture that keeps them secure, compliant and fast at scale.</p>
+          <div class="chips"><i>Super Apps</i><i>Digital Wallets</i><i>Payment Gateways</i><i>Platform Engineering</i></div>
+        </div>
+      </article>
+      <article class="svc">
+        <div><span class="idx">06 · AI</span><h3>Applied AI &amp; Agentic Systems</h3></div>
+        <div class="body">
+          <p>LLM-powered agents that work your stack: campaign co-pilots, autonomous data-quality checks, and orchestration layers that connect your experience platforms with the rest of the enterprise.</p>
+          <div class="chips"><i>Agent Orchestration</i><i>Campaign Co-pilots</i><i>Streaming Data</i><i>Cloud Native</i></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="snowline-label" aria-hidden="true">Summit push · 7,900 M</div>
+<section class="snow" id="products">
+  <div class="aurora" aria-hidden="true"><i></i><i></i></div>
+  <div class="wrap">
+    <div class="prod-intro rv">
+      <div class="sec-tag">Products by Aventis</div>
+      <h2>Software we build. Proven at enterprise scale.</h2>
+      <p class="lede">Two products born inside real transformation programmes: Prezio for revenue, CX Pulse for loyalty. Both engineered to run alongside your experience stack from day one.</p>
+    </div>
+    <div class="pulse-grid" id="prezio">
+      <div class="rv">
+        <span class="prod-kicker"><i>Prezio</i> Dynamic pricing</span>
+        <div class="prod-name">The right price, for one customer at a time.</div>
+        <p class="lede">Our dynamic pricing and offer decisioning engine. Prezio scores every customer against your full catalog and decides the winning offer and price for each channel, nightly at full-base scale and in real time when the moment demands it.</p>
+        <div class="pulse-feats">
+          <div class="f"><span class="dot"></span><div><b>N=1 decisioning</b><p>A personalized winner per customer, per channel, ranked by propensity and value rather than averages.</p></div></div>
+          <div class="f"><span class="dot"></span><div><b>Commercial guardrails</b><p>Margin floors, eligibility and fairness rules enforced on every decision, with a full audit trail.</p></div></div>
+          <div class="f"><span class="dot"></span><div><b>Value you can prove</b><p>Built-in holdouts and dashboards that separate the incremental revenue from the noise.</p></div></div>
+        </div>
+        <a class="btn" style="margin-top:36px" href="prezio.html">Explore Prezio <span class="arr">→</span></a>
+      </div>
+      <div class="rv">
+        <div class="mock tilt-l" aria-hidden="true">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="inner">
+            <div class="kpis">
+              <div class="kpi"><small>Customers priced</small><b><span class="num" data-to="42" data-dec="0" data-suffix="M">0M</span></b></div>
+              <div class="kpi"><small>Uplift vs holdout</small><b><span class="num" data-to="11.8" data-dec="1" data-prefix="+" data-suffix="%">+0.0%</span></b></div>
+              <div class="kpi"><small>Guardrail pass</small><b><span class="num" data-to="100" data-dec="0" data-suffix="%">0%</span></b></div>
+            </div>
+            <div class="pz-rows">
+              <div class="pz-row" data-w="88"><small>Customer A · App</small><div class="pz-bar"><i></i></div><div class="pz-price"><em>$5.90</em><span class="pv">$4.20</span></div></div>
+              <div class="pz-row" data-w="64"><small>Customer B · Web</small><div class="pz-bar"><i></i></div><div class="pz-price"><em>$5.90</em><span class="pv">$4.90</span></div></div>
+              <div class="pz-row" data-w="76"><small>Customer C · SMS</small><div class="pz-bar"><i></i></div><div class="pz-price"><em>$7.50</em><span class="pv">$5.60</span></div></div>
+              <div class="pz-row" data-w="52"><small>Customer D · App</small><div class="pz-bar"><i></i></div><div class="pz-price"><em>$7.50</em><span class="pv">$6.30</span></div></div>
+            </div>
+            <div class="pz-foot"><small>Live · <span id="pz-rate">0</span> decisions/sec</small><small class="ok">● All guardrails passed</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pulse-grid flip prod-row" id="cxpulse">
+      <div class="rv">
+        <span class="prod-kicker"><i>CX Pulse</i> Experience management</span>
+        <div class="prod-name">Feedback that moves.</div>
+        <p class="lede">Our in-house experience management platform. Capture NPS, CSAT and CES across every touchpoint, let AI find the "why" behind the score, and route insight to the teams who can act on it.</p>
+        <div class="pulse-feats">
+          <div class="f"><span class="dot"></span><div><b>Every channel, one pulse</b><p>Web, app, email and in-journey surveys, unified with the customer profile.</p></div></div>
+          <div class="f"><span class="dot"></span><div><b>AI-read verbatims</b><p>Themes, sentiment and emerging issues surfaced automatically from open feedback.</p></div></div>
+          <div class="f"><span class="dot"></span><div><b>Built to close the loop</b><p>Alerts and workflows push detractor cases to frontline teams in minutes, not quarters.</p></div></div>
+        </div>
+        <a class="btn" style="margin-top:36px" href="cx-pulse.html">Explore CX Pulse <span class="arr">→</span></a>
+      </div>
+      <div class="rv">
+        <div class="mock" aria-hidden="true">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="inner">
+            <div class="kpis">
+              <div class="kpi"><small>NPS</small><b><span class="num" data-to="62" data-dec="0" data-prefix="+">+0</span><em>▲ 8</em></b></div>
+              <div class="kpi"><small>Responses</small><b><span class="num" data-to="18.4" data-dec="1" data-suffix="k">0.0k</span></b></div>
+              <div class="kpi"><small>Loop closed</small><b><span class="num" data-to="92" data-dec="0" data-suffix="%">0%</span></b></div>
+            </div>
+            <svg viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3B66F6" stop-opacity=".28"/><stop offset="1" stop-color="#3B66F6" stop-opacity="0"/></linearGradient></defs>
+              <g stroke="#EDF1FA" stroke-width="1">
+                <line x1="0" y1="40" x2="520" y2="40"/><line x1="0" y1="90" x2="520" y2="90"/><line x1="0" y1="140" x2="520" y2="140"/>
+              </g>
+              <path id="cx-area" d="M0 150 C60 140,90 155,140 120 C190 85,230 110,280 92 C330 74,370 88,420 55 C460 30,490 42,520 28 L520 200 L0 200 Z" fill="url(#g1)"/>
+              <path id="cx-line" d="M0 150 C60 140,90 155,140 120 C190 85,230 110,280 92 C330 74,370 88,420 55 C460 30,490 42,520 28" fill="none" stroke="#3B66F6" stroke-width="3" stroke-linecap="round"/>
+              <circle class="ping" cx="470" cy="42" r="9" fill="#3B66F6" opacity=".2"/>
+              <circle cx="470" cy="42" r="6" fill="#3B66F6"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="operate">
+  <div class="wrap">
+    <div class="rv"><div class="sec-tag">Run &amp; optimize</div>
+    <h2>We don't leave after go-live. We move in.</h2>
+    <p class="lede">Most partners hand over a platform. We take accountability for its performance by operating, tuning and evolving your experience stack as an embedded extension of your team.</p></div>
+    <div class="ops rv">
+      <div class="op"><span class="lvl">01</span><h3>Always-on operations</h3><p>Round-the-clock monitoring and rapid response across platforms, journeys and integrations, so campaigns never miss a send.</p></div>
+      <div class="op"><span class="lvl">02</span><h3>Continuous optimization</h3><p>Standing experimentation, performance tuning and data-quality engineering that make results compound quarter over quarter.</p></div>
+      <div class="op"><span class="lvl">03</span><h3>Embedded senior expertise</h3><p>Architects and engineers who designed the build stay on the account, so decisions are made by people who know your stack cold.</p></div>
+    </div>
+    <p class="ops-note rv">Live 24×7 with follow-the-sun coverage for enterprise clients across Asia-Pacific.</p>
+  </div>
+</section>
+
+<section class="proof" id="proof">
+  <canvas class="fieldcv" id="fld-proof" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="rv">
+      <div class="sec-tag">Proof</div>
+      <h2>Built at a scale most partners only pitch.</h2>
+      <p class="lede">Our work runs in production for some of Asia's largest consumer brands, measured in subscribers rather than slideware.</p>
+    </div>
+    <div class="pf-grid rv">
+      <div class="pf"><b><span class="num" data-to="90" data-dec="0" data-suffix="M+">0</span></b><small>Customer profiles architected on platforms we designed</small></div>
+      <div class="pf"><b><span class="num" data-to="13" data-dec="0">0</span></b><small>Enterprise use cases delivered across multiple brands</small></div>
+      <div class="pf"><b><span class="num" data-to="50" data-dec="0" data-suffix="+">0</span></b><small>Certified specialists across data, journeys, apps and payments</small></div>
+      <div class="pf"><b>24&times;7</b><small>Follow-the-sun operations across Asia-Pacific</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="industries">
+  <div class="wrap">
+    <div class="rv"><div class="sec-tag">Industries</div>
+    <h2>Built for scale where experience is the product.</h2></div>
+    <div class="inds rv">
+      <div class="ind"><span class="tag">Telecommunications</span><h3>Telco &amp; digital services</h3><p>Real-time engagement for tens of millions of subscribers: super-app experiences, N=1 offer pricing, prepaid journeys and churn prevention at full-base scale.</p></div>
+      <div class="ind"><span class="tag">Aviation &amp; Travel</span><h3>Airlines &amp; hospitality</h3><p>From booking to boarding: personalization across the traveler journey, dynamic ancillary pricing, loyalty activation and seamless in-app payments.</p></div>
+      <div class="ind"><span class="tag">Financial Services</span><h3>Banking &amp; fintech</h3><p>Digital wallets and payment experiences, onboarding and KYC funnel analytics, and next-best-action decisioning, all under strict consent and governance.</p></div>
+      <div class="ind"><span class="tag">Retail &amp; Consumer</span><h3>Retail &amp; e-commerce</h3><p>Unified commerce profiles, personalized pricing and promotions, embedded payments, and content supply chains that keep every market on-brand.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="rv">
+      <div class="sec-tag">About Aventis</div>
+      <h2 class="about-lead">Working alongside every client to bridge strategy and execution, delivering technology that creates lasting business value.</h2>
+    </div>
+    <div class="about-cols rv">
+      <div class="ac">
+        <span class="idx">01</span>
+        <p class="ac-lead">Strategy drives every decision. Execution proves every strategy.</p>
+        <p>Business strategy, architecture, and engineering stay aligned from planning through delivery, ensuring every decision supports your business priorities and every solution delivers measurable results that move your business forward.</p>
+      </div>
+      <div class="ac">
+        <span class="idx">02</span>
+        <p class="ac-lead">Technology earns its value through business impact.</p>
+        <p>Every solution is designed to simplify complexity, strengthen resilience, accelerate growth, and deliver value that continues long after implementation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="security">
+  <div class="wrap">
+    <div class="cert-card rv">
+      <img src="images/soc2-badge.png" alt="AICPA SOC 2 Type II certified" width="112" height="112" loading="lazy">
+      <div>
+        <span class="sec-tag" style="margin-bottom:14px">Trust &amp; Security</span>
+        <h3>SOC 2 Type II certified.</h3>
+        <p>Our controls for the security, availability and confidentiality of the systems used to deliver the Products and Services are independently audited annually against the AICPA's SOC 2 Type II standard. A copy of the current report is available to customers and prospective customers under NDA.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="rv">
+      <div class="sec-tag">Leadership</div>
+      <h2>The people accountable for your outcome.</h2>
+      <p class="lede">Senior practitioners who stay on the engagement from first workshop to production, not a rotating bench.</p>
+    </div>
+    <div class="team-grid rv">
+      <figure class="tm"><div class="ph"><img src="https://www.aventistechnology.com/vamsi.jpeg" alt="Vamsi" width="640" height="640" loading="lazy"></div><figcaption><b>Vamsi</b><span>Chief Executive Officer</span></figcaption></figure>
+      <figure class="tm"><div class="ph"><img src="https://www.aventistechnology.com/saurabh.jpg" alt="Saurabh" width="640" height="640" loading="lazy"></div><figcaption><b>Saurabh</b><span>Chief Technology Officer</span></figcaption></figure>
+      <figure class="tm"><div class="ph"><img src="https://www.aventistechnology.com/fendy.jpg" alt="Fendy" width="640" height="640" loading="lazy"></div><figcaption><b>Fendy</b><span>Solution Architect</span></figcaption></figure>
+      <figure class="tm"><div class="ph"><img src="https://www.aventistechnology.com/ion.jpg" alt="Ion" width="640" height="640" loading="lazy"></div><figcaption><b>Ion</b><span>Head of Project Management</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <canvas class="fieldcv" id="fld-cta" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <h2>From strategic intent to <em>production reality.</em></h2>
+    <p class="lede">Build what's next with confidence.</p>
+    <div class="cta-btns">
+      <a class="btn ghost" href="#proof">Explore more projects</a>
+      <a class="btn" href="mailto:hello@aventistechnology.com">Start the conversation <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot">
+    <div class="about">
+      <a class="brand" href="#top" aria-label="Aventis Technology">
+        <svg viewBox="0 0 64 64" width="34" height="34" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#3B66F6"/><path d="M14 46 L32 16 L50 46 L41 46 L32 30 L28 37 L25 33 Z" fill="#fff"/></svg>
+        <span class="wm">Aventis <b>Technology</b></span>
+      </a>
+      <p>Digital experience and engineering partner headquartered in Singapore. An Adobe Digital Experience Partner with delivery depth across data, apps and payments for enterprises in Asia-Pacific.</p>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="#approach">Approach</a>
+      <a href="#services">Services</a>
+      <a href="#industries">Industries</a>
+      <a href="#about">About</a>
+      <a href="#team">Leadership</a>
+      <a href="#contact">Contact</a>
+      <a href="legal.html">Legal</a>
+    </div>
+    <div>
+      <h4>Products</h4>
+      <a href="prezio.html">Prezio</a>
+      <a href="cx-pulse.html">CX Pulse</a>
+      <a href="#operate">Run &amp; Optimize</a>
+      <a href="#services">Capabilities</a>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <a href="mailto:hello@aventistechnology.com">hello@aventistechnology.com</a>
+      <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#contact">Start a project</a>
+    </div>
+  </div>
+  <div class="legal">
+    <span>© 2026 Aventis Technologies Pte. Ltd. Singapore. All rights reserved.</span>
+    <span><a href="legal.html" style="color:inherit">Legal</a> · Customer experience, engineered at altitude.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function clamp(v,a,b){ return v<a?a:(v>b?b:v); }
+function pad(n){ n=Math.round(n); return ('0000'+n).slice(-4); }
+
+/* ================= Preloader ================= */
+var loader = document.getElementById('loader');
+var loadAlt = document.getElementById('load-alt');
+var t0 = performance.now();
+(function loadTick(now){
+  var p = Math.min(((now||t0) - t0)/900, 1);
+  loadAlt.textContent = pad(p*1320);
+  if(p<1 && !reduced) requestAnimationFrame(loadTick);
+})(t0);
+function boot(){ loader.classList.add('done'); document.body.classList.add('ready'); }
+window.addEventListener('load', function(){ setTimeout(boot, reduced ? 0 : 480); });
+setTimeout(boot, 2600);
+
+/* ================= Nav ================= */
+var nav = document.getElementById('nav');
+var links = document.getElementById('nav-links');
+var toggle = document.getElementById('menu-toggle');
+toggle.addEventListener('click', function(){
+  var open = links.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', open);
+  toggle.textContent = open ? '\u2715' : '\u2630';
+});
+links.querySelectorAll('a').forEach(function(a){
+  a.addEventListener('click', function(){ links.classList.remove('open'); toggle.textContent='\u2630'; toggle.setAttribute('aria-expanded', false); });
+});
+
+/* ================= Living topography: shared field engine ================= */
+var isSmall = window.innerWidth < 760;
+var heroP = 0, ptrX = -9999, ptrY = -9999;
+
+var PT = new Float32Array(512);
+(function(){ var s=1103515245; for(var i=0;i<512;i++){ s=(s*1103515245+12345)&0x7fffffff; PT[i]=(s%10000)/10000; } })();
+function hsh(xi,yi){ return PT[(xi*57 + yi*131) & 511]; }
+function vn(x,y){
+  var xi=Math.floor(x), yi=Math.floor(y), xf=x-xi, yf=y-yi;
+  var u=xf*xf*(3-2*xf), v=yf*yf*(3-2*yf);
+  var a=hsh(xi,yi), b=hsh(xi+1,yi), c=hsh(xi,yi+1), d=hsh(xi+1,yi+1);
+  return a*(1-u)*(1-v) + b*u*(1-v) + c*(1-u)*v + d*u*v;
+}
+function fbm(x,y){ return vn(x,y)*0.58 + vn(x*2.11,y*2.11)*0.26 + vn(x*4.3,y*4.3)*0.12 + vn(x*8.7,y*8.7)*0.04; }
+
+var FIELDS = [];
+function Field(cv, o){
+  this.cv = cv; this.ctx = cv.getContext('2d'); this.o = o;
+  this.t = o.seed || 0; this.vis = false;
+  this.mx = -9999; this.my = -9999;
+  this.resize();
+  var self = this;
+  new IntersectionObserver(function(en){ self.vis = en[0].isIntersecting; }, {rootMargin:'140px'}).observe(cv);
+  FIELDS.push(this);
+}
+Field.prototype.resize = function(){
+  var dpr = Math.min(window.devicePixelRatio||1, 2);
+  this.W = this.cv.offsetWidth; this.H = this.cv.offsetHeight;
+  if(!this.W || !this.H) return;
+  this.cv.width = Math.round(this.W*dpr); this.cv.height = Math.round(this.H*dpr);
+  this.ctx.setTransform(dpr,0,0,dpr,0,0);
+  this.cell = isSmall ? this.o.cellS : this.o.cell;
+  this.cols = Math.ceil(this.W/this.cell);
+  this.rows = Math.ceil(this.H/this.cell);
+  this.field = new Float32Array((this.cols+1)*(this.rows+1));
+  /* scale is relative to canvas width, so density holds on any screen */
+  this.s = (isSmall ? this.o.spanS : this.o.span) / this.W;
+};
+Field.prototype.draw = function(){
+  var o=this.o, ctx=this.ctx, W=this.W, H=this.H, CELL=this.cell;
+  if(!W || !H || !this.field) return;
+  var cols=this.cols, rows=this.rows, F=this.field, s=this.s;
+  /* cursor bump, in local coords */
+  var bx=-9999, by=-9999;
+  if(o.bump && ptrX > -9000){
+    var rect = this.cv.getBoundingClientRect();
+    var lx = ptrX-rect.left, ly = ptrY-rect.top;
+    if(lx > -240 && lx < W+240 && ly > -240 && ly < H+240){ bx=lx; by=ly; }
+  }
+  if(bx < -9000){ this.mx = -9999; }
+  else if(this.mx < -9000){ this.mx = bx; this.my = by; }
+  else { this.mx += (bx-this.mx)*0.09; this.my += (by-this.my)*0.09; }
+  var R2 = (W*0.17)*(W*0.17), useB = this.mx > -9000;
+  for(var r=0;r<=rows;r++){
+    var y=r*CELL, base=y*s + this.t;
+    for(var c=0;c<=cols;c++){
+      var x=c*CELL, v=fbm(x*s, base);
+      if(useB){ var dx=x-this.mx, dy=y-this.my, d2=(dx*dx+dy*dy)/R2; if(d2<7) v += 0.42*Math.exp(-d2*0.6); }
+      F[r*(cols+1)+c]=v;
+    }
+  }
+  ctx.clearRect(0,0,W,H);
+  var shift = o.shift ? heroP*0.07 : 0;
+  var lo = o.lo + shift, hi = o.hi + shift;
+  var levels = isSmall ? o.levelsS : o.levels;
+  for(var l=0;l<levels;l++){
+    var T = lo + (hi-lo)*(l/(levels-1));
+    var major = (l % 4 === 0);
+    ctx.beginPath();
+    for(var rr=0;rr<rows;rr++){
+      var rowi = rr*(cols+1);
+      for(var cc=0;cc<cols;cc++){
+        var i0=rowi+cc;
+        var vtl=F[i0], vtr=F[i0+1], vbl=F[i0+cols+1], vbr=F[i0+cols+2];
+        var id=(vtl>=T?8:0)|(vtr>=T?4:0)|(vbr>=T?2:0)|(vbl>=T?1:0);
+        if(id===0||id===15) continue;
+        var x0=cc*CELL, y0=rr*CELL, x1=x0+CELL, y1=y0+CELL;
+        var Lx=x0, Ly=y0+CELL*((T-vtl)/(vbl-vtl));
+        var Rx=x1, Ry=y0+CELL*((T-vtr)/(vbr-vtr));
+        var Tx=x0+CELL*((T-vtl)/(vtr-vtl)), Ty=y0;
+        var Bx=x0+CELL*((T-vbl)/(vbr-vbl)), By=y1;
+        switch(id){
+          case 1: case 14: ctx.moveTo(Lx,Ly); ctx.lineTo(Bx,By); break;
+          case 2: case 13: ctx.moveTo(Bx,By); ctx.lineTo(Rx,Ry); break;
+          case 3: case 12: ctx.moveTo(Lx,Ly); ctx.lineTo(Rx,Ry); break;
+          case 4: case 11: ctx.moveTo(Tx,Ty); ctx.lineTo(Rx,Ry); break;
+          case 6: case 9:  ctx.moveTo(Tx,Ty); ctx.lineTo(Bx,By); break;
+          case 7: case 8:  ctx.moveTo(Tx,Ty); ctx.lineTo(Lx,Ly); break;
+          case 5: ctx.moveTo(Tx,Ty); ctx.lineTo(Lx,Ly); ctx.moveTo(Bx,By); ctx.lineTo(Rx,Ry); break;
+          case 10: ctx.moveTo(Tx,Ty); ctx.lineTo(Rx,Ry); ctx.moveTo(Lx,Ly); ctx.lineTo(Bx,By); break;
+        }
+      }
+    }
+    ctx.strokeStyle = major ? o.major : o.minor;
+    ctx.lineWidth = major ? (isSmall?1.7:1.6) : (isSmall?1.0:1.0);
+    ctx.stroke();
+  }
+  if(o.mask){
+    ctx.globalCompositeOperation='destination-out';
+    var ex=W*(isSmall?o.mask.xs:o.mask.x), ey=H*(isSmall?o.mask.ys:o.mask.y);
+    var g=ctx.createRadialGradient(ex,ey,0,ex,ey,Math.max(W,H)*(isSmall?o.mask.rs:o.mask.r));
+    g.addColorStop(0,'rgba(0,0,0,.96)'); g.addColorStop(.55,'rgba(0,0,0,.62)'); g.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+    ctx.globalCompositeOperation='source-over';
+  }
+  this.t += o.speed;
+};
+
+/* --- register every living surface on the page --- */
+var BLUE_MIN='rgba(59,102,246,.26)', BLUE_MAJ='rgba(59,102,246,.52)';
+var LIGHT_MIN='rgba(110,168,255,.30)', LIGHT_MAJ='rgba(143,208,255,.62)';
+function reg(id, o){ var el=document.getElementById(id); if(el) new Field(el,o); }
+reg('terrain', {cell:18,cellS:14,span:6.5,spanS:4.6,levels:12,levelsS:9,lo:.24,hi:.68,
+  minor:BLUE_MIN,major:BLUE_MAJ,speed:.0014,seed:0,bump:true,shift:true,
+  mask:{x:.30,y:.48,r:.42,xs:.5,ys:.40,rs:.52}});
+reg('fld-mani', {cell:22,cellS:16,span:5,spanS:3.8,levels:9,levelsS:7,lo:.26,hi:.66,
+  minor:'rgba(59,102,246,.20)',major:'rgba(59,102,246,.38)',speed:.0011,seed:11,
+  mask:{x:.34,y:.5,r:.44,xs:.5,ys:.5,rs:.55}});
+reg('fld-proof', {cell:20,cellS:15,span:5.5,spanS:4.2,levels:10,levelsS:8,lo:.26,hi:.68,
+  minor:LIGHT_MIN,major:LIGHT_MAJ,speed:.0016,seed:23});
+reg('fld-cta', {cell:19,cellS:15,span:5.8,spanS:4.4,levels:11,levelsS:8,lo:.25,hi:.68,
+  minor:BLUE_MIN,major:BLUE_MAJ,speed:.0013,seed:37,bump:true,
+  mask:{x:.5,y:.5,r:.36,xs:.5,ys:.5,rs:.46}});
+
+window.addEventListener('pointermove', function(e){ ptrX=e.clientX; ptrY=e.clientY; }, {passive:true});
+document.addEventListener('pointerleave', function(){ ptrX=-9999; ptrY=-9999; });
+window.addEventListener('resize', function(){
+  isSmall = window.innerWidth < 760;
+  FIELDS.forEach(function(f){ f.resize(); f.draw(); });
+});
+FIELDS.forEach(function(f){ f.draw(); });
+
+/* one loop for every field; only in-view canvases render, halved on small screens */
+var frame = 0, entry = performance.now();
+function loop(){
+  frame++;
+  if(!(isSmall && (frame & 1))){
+    var el = (performance.now()-entry)/2000;
+    var boost = el < 1 ? (1-el)*(1-el)*9 : 0;
+    for(var i=0;i<FIELDS.length;i++){
+      var f = FIELDS[i];
+      if(!f.vis) continue;
+      var sv = f.o.speed; f.o.speed = sv*(1+boost); f.draw(); f.o.speed = sv;
+    }
+  }
+  requestAnimationFrame(loop);
+}
+if(!reduced) requestAnimationFrame(loop);
+
+/* ================= Scroll: nav, altimeter, hero climb, card stack ================= */
+var altFill = document.getElementById('alt-fill');
+var altVal = document.getElementById('alt-val');
+var header = document.querySelector('header');
+var svcs = Array.prototype.slice.call(document.querySelectorAll('.svc'));
+var ticking = false;
+function onScroll(){
+  if(ticking) return; ticking = true;
+  requestAnimationFrame(function(){
+    var y = window.scrollY;
+    nav.classList.toggle('scrolled', y > 40);
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var p = max > 0 ? y/max : 0;
+    altFill.style.height = (p*100)+'%';
+    altVal.textContent = pad(p*8848);
+    heroP = clamp(y / Math.max(header.offsetHeight,1), 0, 1);
+    if(ascent) updateAscent();
+    /* stacked service cards recede as the next one covers them */
+    if(window.innerWidth > 900){
+      for(var i=0;i<svcs.length-1;i++){
+        var cur = svcs[i].getBoundingClientRect(), nxt = svcs[i+1].getBoundingClientRect();
+        var ov = clamp((cur.bottom - nxt.top) / cur.height, 0, 1);
+        svcs[i].style.transform = 'scale('+(1-ov*0.055)+')';
+        svcs[i].style.opacity = 1 - ov*0.4;
+      }
+    }
+    ticking = false;
+  });
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+
+/* ================= Signature: pinned ascent ================= */
+var ascent = document.getElementById('approach');
+var ascNum = document.getElementById('asc-num');
+var ascBar = document.getElementById('asc-bar');
+var route = document.getElementById('asc-route');
+var climber = document.getElementById('climber');
+var steps = Array.prototype.slice.call(document.querySelectorAll('.asc-step'));
+var dots = Array.prototype.slice.call(document.querySelectorAll('.asc-dots b'));
+var wps = Array.prototype.slice.call(document.querySelectorAll('.wp'));
+var routeLen = 0, lastIdx = -1;
+if(route){
+  routeLen = route.getTotalLength();
+  route.style.strokeDasharray = routeLen;
+  route.style.strokeDashoffset = routeLen;
+}
+/* fraction along the route where each waypoint sits, measured from the path itself */
+var wpAt = [];
+if(route){
+  var targets = [[70,560],[280,495],[450,430],[620,355],[790,142]];
+  targets.forEach(function(t){
+    var best = 0, bestD = 1e9;
+    for(var s=0; s<=200; s++){
+      var pt = route.getPointAtLength(routeLen*s/200);
+      var d = (pt.x-t[0])*(pt.x-t[0]) + (pt.y-t[1])*(pt.y-t[1]);
+      if(d < bestD){ bestD = d; best = s/200; }
+    }
+    wpAt.push(best);
+  });
+}
+function updateAscent(){
+  var rect = ascent.getBoundingClientRect();
+  var total = ascent.offsetHeight - window.innerHeight;
+  if(total <= 0) return;
+  var p = clamp(-rect.top/total, 0, 1);
+  /* hold briefly at each end so the first and last steps can be read */
+  var e = clamp((p - 0.05)/0.83, 0, 1);
+  ascNum.textContent = Math.round(e*8848).toLocaleString();
+  ascBar.style.width = (e*100)+'%';
+  if(route){
+    route.style.strokeDashoffset = routeLen*(1-e);
+    var pt = route.getPointAtLength(routeLen*e);
+    climber.setAttribute('transform','translate('+pt.x+','+pt.y+')');
+  }
+  var idx = 0;
+  for(var i=0;i<wpAt.length;i++){ if(e >= wpAt[i]-0.04) idx = i; }
+  if(idx !== lastIdx){
+    lastIdx = idx;
+    steps.forEach(function(s,i){ s.classList.toggle('on', i===idx); });
+    dots.forEach(function(d,i){ d.classList.toggle('on', i===idx); });
+    wps.forEach(function(w,i){
+      var done = i <= idx;
+      w.setAttribute('fill', done ? '#3B66F6' : '#C9D8FA');
+      w.setAttribute('r', i===idx ? 9 : 6);
+    });
+  }
+}
+if(ascent && reduced && route){
+  route.style.strokeDashoffset = 0;
+  climber.setAttribute('transform','translate(790,142)');
+  wps.forEach(function(w){ w.setAttribute('fill','#3B66F6'); });
+  ascNum.textContent = '8,848'; ascBar.style.width = '100%';
+  steps.forEach(function(s){ s.classList.add('on'); });
+} else if(ascent) updateAscent();
+
+/* ================= Ticker ================= */
+var lane = document.getElementById('ticker-lane');
+lane.innerHTML += lane.innerHTML;
+
+/* ================= Reveals ================= */
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold: 0.15});
+document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+/* ================= Manifesto ================= */
+var mani = document.getElementById('mani-text');
+var keywords = ['mastered.','mountain','performs.'];
+mani.innerHTML = mani.textContent.split(' ').map(function(w){
+  return '<span class="w'+(keywords.indexOf(w)>-1?' key':'')+'">'+w+'</span>';
+}).join(' ');
+var words = mani.querySelectorAll('.w');
+function maniScroll(){
+  var rect = mani.getBoundingClientRect(), vh = window.innerHeight;
+  var pr = clamp((vh*0.85 - rect.top) / (rect.height + vh*0.35), 0, 1);
+  var lit = Math.floor(pr * words.length);
+  for(var i=0;i<words.length;i++) words[i].classList.toggle('lit', i < lit);
+}
+if(reduced){ words.forEach(function(w){ w.classList.add('lit'); }); }
+else { window.addEventListener('scroll', maniScroll, {passive:true}); maniScroll(); }
+
+/* ================= Number count-ups ================= */
+function countUp(el){
+  var to = parseFloat(el.dataset.to), dec = parseInt(el.dataset.dec||0,10);
+  var pre = el.dataset.prefix||'', suf = el.dataset.suffix||'', st = performance.now();
+  (function tick(now){
+    var p = clamp((now-st)/1500, 0, 1);
+    var e = 1 - Math.pow(1-p, 3);
+    el.textContent = pre + (to*e).toFixed(dec) + suf;
+    if(p<1) requestAnimationFrame(tick);
+  })(st);
+}
+
+/* ================= Live product mocks ================= */
+var pzRows = Array.prototype.slice.call(document.querySelectorAll('.pz-row'));
+var pzRate = document.getElementById('pz-rate');
+var cxLine = document.getElementById('cx-line');
+if(cxLine){
+  var len = cxLine.getTotalLength();
+  cxLine.style.strokeDasharray = len; cxLine.style.strokeDashoffset = len;
+}
+var prices = ['$3.90','$4.20','$4.60','$4.90','$5.30','$5.60','$6.30'];
+var pzLive = null, rateLive = null;
+function startMock(mock){
+  if(mock.dataset.live) return; mock.dataset.live = '1';
+  mock.classList.add('drawn');
+  if(cxLine && mock.contains(cxLine)) cxLine.style.strokeDashoffset = 0;
+  mock.querySelectorAll('.num').forEach(function(n){ if(!reduced) countUp(n); else n.textContent=(n.dataset.prefix||'')+n.dataset.to+(n.dataset.suffix||''); });
+  mock.querySelectorAll('.pz-row').forEach(function(row, i){
+    setTimeout(function(){ row.querySelector('.pz-bar i').style.width = row.dataset.w+'%'; }, 220 + i*130);
+  });
+  if(reduced) return;
+  if(mock.querySelector('.pz-row') && !pzLive){
+    pzLive = setInterval(function(){
+      var row = pzRows[Math.floor(Math.random()*pzRows.length)];
+      row.classList.add('flash');
+      row.querySelector('.pz-price .pv').textContent = prices[Math.floor(Math.random()*prices.length)];
+      row.querySelector('.pz-bar i').style.width = (44 + Math.floor(Math.random()*52))+'%';
+      setTimeout(function(){ row.classList.remove('flash'); }, 900);
+    }, 2400);
+  }
+  if(pzRate && mock.contains(pzRate) && !rateLive){
+    rateLive = setInterval(function(){
+      pzRate.textContent = (2200 + Math.floor(Math.random()*700)).toLocaleString();
+    }, 1400);
+    pzRate.textContent = '2,418';
+  }
+}
+var mockIO = new IntersectionObserver(function(en){
+  en.forEach(function(e){ if(e.isIntersecting){ startMock(e.target); mockIO.unobserve(e.target); } });
+}, {threshold: 0.3});
+document.querySelectorAll('.mock').forEach(function(m){ mockIO.observe(m); });
+
+var pfIO = new IntersectionObserver(function(en){
+  en.forEach(function(e){
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.num').forEach(function(n){
+        if(reduced) n.textContent = (n.dataset.prefix||'')+n.dataset.to+(n.dataset.suffix||'');
+        else countUp(n);
+      });
+      pfIO.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.4});
+var pfGrid = document.querySelector('.pf-grid');
+if(pfGrid) pfIO.observe(pfGrid);
+
+/* ================= Spotlight on cards ================= */
+if(!reduced){
+  document.querySelectorAll('.pillar,.ind').forEach(function(card){
+    card.addEventListener('pointermove', function(e){
+      var r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX-r.left)+'px');
+      card.style.setProperty('--my', (e.clientY-r.top)+'px');
+    }, {passive:true});
+  });
+}
+
+/* ================= Magnetic buttons + cursor ================= */
+var cursor = document.getElementById('cursor');
+if(window.matchMedia('(hover:hover)').matches && !reduced){
+  var cx=0, cy=0, tx=0, ty=0, shown=false;
+  window.addEventListener('pointermove', function(e){
+    tx=e.clientX; ty=e.clientY;
+    if(!shown){ cursor.classList.add('on'); shown=true; }
+  }, {passive:true});
+  (function cl(){ cx+=(tx-cx)*0.2; cy+=(ty-cy)*0.2;
+    cursor.style.transform='translate('+cx+'px,'+cy+'px) translate(-50%,-50%)';
+    requestAnimationFrame(cl); })();
+  document.querySelectorAll('a,button').forEach(function(el){
+    el.addEventListener('pointerenter', function(){ cursor.classList.add('grow'); });
+    el.addEventListener('pointerleave', function(){ cursor.classList.remove('grow'); });
+  });
+  document.querySelectorAll('.btn').forEach(function(b){
+    b.addEventListener('pointermove', function(e){
+      var r = b.getBoundingClientRect();
+      var dx = (e.clientX - (r.left+r.width/2))/(r.width/2);
+      var dy = (e.clientY - (r.top+r.height/2))/(r.height/2);
+      b.style.transform = 'translate('+(dx*7)+'px,'+(dy*5-2)+'px)';
+    }, {passive:true});
+    b.addEventListener('pointerleave', function(){ b.style.transform = ''; });
+  });
+}
+})();
+</script>
+</body>
+</html>
