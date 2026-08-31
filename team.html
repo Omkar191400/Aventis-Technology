@@ -3,12 +3,133 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CX Pulse | Aventis Technology</title>
-<meta name="description" content="CX Pulse is Aventis Technology experience management platform, capturing NPS, CSAT and CES across every touchpoint and routing insight to the teams who can act.">
+<title>Team &amp; Global Delivery Organization | Aventis Technology</title>
+<meta name="description" content="Meet the leadership, regional delivery managers, product teams and global delivery hubs behind Aventis Technology's Adobe, data and engineering programmes across Asia-Pacific.">
+<link rel="canonical" href="https://www.aventistechnology.com/team">
+<meta name="robots" content="index,follow">
 <link rel="preconnect" href="https://api.fontshare.com">
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="%233B66F6"/><path d="M14 46 L32 16 L50 46 L41 46 L32 30 L28 37 L25 33 Z" fill="white"/></svg>'>
+<style>
+/* ---------- Hero ---------- */
+.thero{padding:170px 48px 30px}
+.thero h1{font-family:var(--display);font-weight:600;font-size:clamp(38px,6vw,74px);line-height:1.03;
+          letter-spacing:-.04em;max-width:16ch}
+.thero h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1.5px var(--blue)}
+.thero .sub{color:var(--muted);font-size:clamp(16px,1.5vw,20px);max-width:58ch;margin-top:26px}
+.tstats{display:flex;flex-wrap:wrap;gap:44px;margin-top:44px;padding-top:34px;border-top:1px solid var(--line)}
+.tstats div b{display:block;font-family:var(--display);font-weight:600;font-size:clamp(26px,3vw,38px);
+  letter-spacing:-.03em;line-height:1}
+.tstats div span{display:block;color:var(--muted-2);font-size:13px;margin-top:8px;letter-spacing:.02em}
+
+/* ---------- Section headers ---------- */
+.tsec{padding-top:96px}
+.tsec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;
+  padding-bottom:26px;border-bottom:1px solid var(--line);margin-bottom:56px}
+.tsec-head .l .tag{display:flex;align-items:center;gap:11px;font-family:var(--display);font-size:11px;
+  font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--muted-2);margin-bottom:14px}
+.tsec-head .l .tag i{width:8px;height:8px;border-radius:50%;flex:none}
+.tsec-head h2{font-family:var(--display);font-weight:600;font-size:clamp(26px,3.2vw,42px);
+  letter-spacing:-.03em;max-width:20ch}
+.tsec-head .r{color:var(--muted);font-size:15.5px;max-width:38ch;padding-bottom:6px}
+@media(max-width:900px){.tsec-head{flex-direction:column;align-items:flex-start;gap:16px}.tsec-head .r{max-width:none}}
+
+/* ---------- People grid ---------- */
+.people{display:grid;grid-template-columns:repeat(5,1fr);gap:22px}
+.people.four{grid-template-columns:repeat(4,1fr)}
+
+/* staggered rhythm — every 2nd card drops slightly */
+.people .person:nth-child(even){transform:translateY(26px)}
+.people.is-hovering .person:not(:hover){opacity:.42;filter:saturate(.5)}
+
+.person{position:relative;display:block;text-decoration:none;color:inherit;
+  transition:opacity .45s var(--ease),filter .45s var(--ease),transform .55s var(--ease)}
+.person:hover{transform:translateY(-6px)}
+.people .person:nth-child(even):hover{transform:translateY(20px)}
+
+.p-photo{position:relative;aspect-ratio:4/5;border-radius:20px;overflow:hidden;
+  border:1px solid var(--line);background:var(--navy-2)}
+.p-photo img{width:100%;height:100%;object-fit:cover;display:block;
+  filter:grayscale(.35) contrast(1.02);transition:transform .8s var(--ease),filter .6s}
+.person:hover .p-photo img{transform:scale(1.06);filter:grayscale(0)}
+.p-photo::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(10,26,82,0) 38%,rgba(8,18,60,.92) 100%);
+  opacity:.85;transition:opacity .5s}
+.person:hover .p-photo::after{opacity:1}
+
+/* accent rail that grows on hover */
+.p-rail{position:absolute;left:18px;bottom:18px;width:26px;height:2px;background:var(--blue);
+  border-radius:2px;transition:width .5s var(--ease),opacity .35s;z-index:2}
+.person:hover .p-rail{width:56px;opacity:0}
+
+/* role reveal, sits inside the photo, slides up on hover */
+.p-role{position:absolute;left:18px;right:18px;bottom:18px;z-index:2;
+  color:var(--blue-soft);font-size:12.5px;line-height:1.45;
+  opacity:0;transform:translateY(10px);transition:opacity .45s var(--ease),transform .45s var(--ease)}
+.person:hover .p-role{opacity:1;transform:translateY(0)}
+
+.p-meta{padding:16px 2px 0}
+.p-meta b{display:block;font-family:var(--display);font-weight:600;font-size:16px;
+  letter-spacing:-.015em;color:var(--ink);line-height:1.25}
+.p-meta span{display:block;color:var(--muted);font-size:13px;margin-top:5px;line-height:1.45}
+
+/* dual-role badge */
+.p-dual{position:absolute;top:14px;left:14px;z-index:2;font-family:var(--display);font-size:9.5px;
+  font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);
+  background:rgba(9,22,72,.72);border:1px solid var(--line-strong);border-radius:100px;padding:5px 10px;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+
+/* CEO feature card */
+.founder{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:center;
+  border:1px solid var(--line-strong);border-radius:28px;background:var(--panel-solid);
+  padding:40px;margin-top:20px}
+.founder .p-photo{aspect-ratio:3/4;border-radius:22px}
+.founder .p-photo img{filter:grayscale(.2)}
+.founder .fq{font-family:var(--display);font-weight:600;font-size:clamp(20px,2.2vw,28px);
+  line-height:1.35;letter-spacing:-.02em;max-width:26ch}
+.founder .fname{margin-top:26px;padding-top:20px;border-top:1px solid var(--line)}
+.founder .fname b{display:block;font-family:var(--display);font-weight:600;font-size:18px}
+.founder .fname span{display:block;color:var(--muted);font-size:14px;margin-top:4px}
+@media(max-width:900px){.founder{grid-template-columns:1fr;gap:28px;padding:26px;border-radius:20px}}
+
+/* ---------- Hubs ---------- */
+.hub-belt{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.hub{position:relative;border:1px solid var(--line);border-radius:18px;padding:26px 20px 24px;
+  background:rgba(255,255,255,.03);overflow:hidden;
+  transition:border-color .4s,background .4s,transform .5s var(--ease)}
+.hub::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:#FFC98F;
+  transform:scaleY(0);transform-origin:top;transition:transform .5s var(--ease)}
+.hub:hover::before{transform:scaleY(1)}
+.hub:hover{border-color:var(--line-strong);background:rgba(255,255,255,.06);transform:translateY(-4px)}
+.hub h4{font-family:var(--display);font-weight:600;font-size:15.5px;margin-bottom:7px;letter-spacing:-.01em}
+.hub p{color:var(--muted);font-size:12.5px}
+.hub .city{font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:#FFC98F;margin-bottom:12px;display:block}
+
+.tnote{margin-top:34px;padding-top:22px;border-top:1px solid var(--line);
+  color:var(--muted-2);font-size:13.5px;font-style:italic;max-width:80ch}
+
+@media(max-width:1180px){
+  .people{grid-template-columns:repeat(3,1fr)}
+  .people.four{grid-template-columns:repeat(3,1fr)}
+  .hub-belt{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:760px){
+  .thero{padding:130px 20px 20px}
+  .tsec{padding-top:70px}
+  .people,.people.four{grid-template-columns:1fr 1fr;gap:14px}
+  .people .person:nth-child(even){transform:none}
+  .people .person:nth-child(even):hover{transform:translateY(-6px)}
+  .people.is-hovering .person:not(:hover){opacity:1;filter:none}
+  .p-role{opacity:1;transform:none;position:static;margin-top:6px;left:auto;right:auto;bottom:auto;
+    color:var(--muted);font-size:12px}
+  .p-photo::after{opacity:.7}
+  .p-rail{display:none}
+  .hub-belt{grid-template-columns:1fr 1fr}
+  .tstats{gap:28px}
+}
+</style>
 </head>
 <body>
 <canvas id="bg-field" aria-hidden="true"></canvas>
@@ -19,97 +140,267 @@
     <a href="/services">Services</a>
     <a href="/case-studies">Work</a>
     <a href="/team">Team</a>
-    <a href="/#products">Products</a>
     <a href="/blog">Blog</a>
     <a href="/#about">About</a>
     <a class="btn" href="/contact">Start a project <span class="arr">&rarr;</span></a>
   </div>
 </nav>
 
-<header class="phero">
+<header class="thero">
   <div class="wrap">
-    <span class="kick"><i>CX Pulse</i> Experience management</span>
-    <h1>Feedback that <em>moves.</em></h1>
-    <p class="sub">Capture NPS, CSAT and CES across every touchpoint, let AI find the reason behind the score, and route the insight to the teams who can act on it while it still matters.</p>
-    <div class="cta">
-      <a class="btn" href="/contact">Request a walkthrough <span class="arr">&rarr;</span></a>
-      <a class="btn ghost" href="#how">See how it works</a>
+    <div class="sec-tag">Team &amp; Organization</div>
+    <h1>The people running <em>the delivery.</em></h1>
+    <p class="sub">Practice leadership, regional delivery management, product teams and the hubs they operate from - the structure behind every Aventis engagement.</p>
+    <div class="tstats">
+      <div><b>14</b><span>Leadership &amp; delivery</span></div>
+      <div><b>5</b><span>Global delivery hubs</span></div>
+      <div><b>7</b><span>Countries</span></div>
+      <div><b>~70%</b><span>Adobe-specialised roster</span></div>
     </div>
   </div>
 </header>
 
-<section class="strip">
+<!-- ---------- Founder ---------- -->
+<section class="tsec" id="founder">
   <div class="wrap">
-    <div class="rv"><div class="sec-tag">The problem</div><h2>Most feedback programmes measure, then stop.</h2><p class="lede">Scores get collected, dashboards get built, and very little changes for the customer who complained.</p></div>
-    <div class="strip-grid rv">
-      <div class="pain"><b>The score without the reason</b><p>A number tells you something is wrong. It does not tell you which journey, which release or which policy caused it.</p></div>
-      <div class="pain"><b>Feedback sits in its own silo</b><p>Survey data disconnected from the customer profile cannot trigger a journey, inform an offer or reach the frontline.</p></div>
-      <div class="pain"><b>The loop never closes</b><p>By the time a detractor case reaches someone empowered to fix it, the customer has already moved on.</p></div>
+    <div class="founder rv">
+      <div class="p-photo">
+        <img src="images/team/vamsi-reddy.jpg" alt="Vamsi Reddy, CEO and Founder" width="390" height="567" loading="lazy">
+      </div>
+      <div>
+        <div class="sec-tag" style="margin-bottom:18px">Founder</div>
+        <p class="fq">&ldquo;Senior practitioners who stay on the engagement from first workshop to production - not a rotating bench.&rdquo;</p>
+        <div class="fname">
+          <b>Vamsi Reddy</b>
+          <span>CEO &amp; Founder</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section>
+<!-- ---------- Global Leadership ---------- -->
+<section class="tsec" id="global-leadership">
   <div class="wrap">
-    <div class="rv"><div class="sec-tag">Capabilities</div><h2>Listen everywhere, understand quickly, act while it counts.</h2><p class="lede">CX Pulse is built to shorten the distance between what a customer says and what your organisation does about it.</p></div>
-    <div class="caps rv">
-      <div class="cap"><span class="n">01</span><h3>Multi-channel capture</h3><p>Web, app, email, messaging and in-journey surveys, all feeding one measurement model across NPS, CSAT and CES.</p></div>
-      <div class="cap"><span class="n">02</span><h3>In-journey triggers</h3><p>Surveys fire at the moment that matters, tied to real events rather than scheduled batches.</p></div>
-      <div class="cap"><span class="n">03</span><h3>AI-read verbatims</h3><p>Themes, sentiment and emerging issues surfaced automatically from open text, at whatever volume arrives.</p></div>
-      <div class="cap"><span class="n">04</span><h3>Profile-linked feedback</h3><p>Every response is stitched to the customer profile, so scores can drive segmentation, journeys and offers.</p></div>
-      <div class="cap"><span class="n">05</span><h3>Closed-loop workflows</h3><p>Detractor cases route to owners with context attached, tracked through to resolution and follow-up.</p></div>
-      <div class="cap"><span class="n">06</span><h3>Dashboards and exports</h3><p>Journey and channel level reporting for the business, with clean exports into the wider analytics estate.</p></div>
+    <div class="tsec-head rv">
+      <div class="l">
+        <div class="tag"><i style="background:#8FB2FF"></i>Global Leadership</div>
+        <h2>Practice heads who set the standard.</h2>
+      </div>
+      <p class="r">Each practice is owned end to end - strategy, architecture and delivery quality sit with the same person.</p>
+    </div>
+
+    <div class="people rv" data-hoverdim>
+      <div class="person">
+        <div class="p-photo">
+          <span class="p-dual">Dual role</span>
+          <img src="images/team/praveen-reddy.jpg" alt="Praveen Reddy" width="640" height="800" loading="lazy">
+          <span class="p-rail"></span>
+          <span class="p-role">CX &amp; Martech Practice Head - Global<br>Also leads Tirupati Delivery Center</span>
+        </div>
+        <div class="p-meta"><b>Praveen Reddy</b><span>CX &amp; Martech Practice Head - Global</span></div>
+      </div>
+
+      <div class="person">
+        <div class="p-photo">
+          <img src="images/team/tarun-pannuru.jpg" alt="Tarun Pannuru" width="640" height="800" loading="lazy">
+          <span class="p-rail"></span>
+          <span class="p-role">Principal Architect</span>
+        </div>
+        <div class="p-meta"><b>Tarun Pannuru</b><span>Principal Architect</span></div>
+      </div>
+
+      <div class="person">
+        <div class="p-photo">
+          <span class="p-dual">Dual role</span>
+          <img src="images/team/ginu-sudhakaran.jpg" alt="Ginu Sudhakaran" width="640" height="800" loading="lazy">
+          <span class="p-rail"></span>
+          <span class="p-role">Experience Management Practice Head - Global<br>Also leads Pune Delivery Center</span>
+        </div>
+        <div class="p-meta"><b>Ginu Sudhakaran</b><span>Experience Management Practice Head - Global</span></div>
+      </div>
+
+      <div class="person">
+        <div class="p-photo">
+          <span class="p-dual">Dual role</span>
+          <img src="images/team/mansoor-alam.jpg" alt="Mansoor Alam" width="640" height="800" loading="lazy">
+          <span class="p-rail"></span>
+          <span class="p-role">Data &amp; AI Practice Head<br>Also leads Islamabad Delivery Center</span>
+        </div>
+        <div class="p-meta"><b>Mansoor Alam</b><span>Data &amp; AI Practice Head</span></div>
+      </div>
+
+      <div class="person">
+        <div class="p-photo">
+          <img src="images/team/rohan-mansukhe.jpg" alt="Rohan Mansukhe" width="640" height="800" loading="lazy">
+          <span class="p-rail"></span>
+          <span class="p-role">Head of Engineering</span>
+        </div>
+        <div class="p-meta"><b>Rohan Mansukhe</b><span>Head of Engineering</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="flow" id="how">
+<!-- ---------- Regional Leadership ---------- -->
+<section class="tsec" id="regional-leadership">
   <div class="wrap">
-    <div class="rv"><div class="sec-tag">How it works</div><h2>From a single response to a resolved case.</h2><p class="lede">Every stage is designed to reduce the time between a customer speaking and someone acting.</p></div>
-    <div class="steps rv">
-      <div class="stp"><span class="num">STEP 01</span><h3>Capture</h3><p>Surveys are triggered by real events across web, app, email and messaging, sized to the moment rather than the calendar.</p></div>
-      <div class="stp"><span class="num">STEP 02</span><h3>Unify</h3><p>Responses are stitched to the customer profile, so a score carries the full context of who gave it and what preceded it.</p></div>
-      <div class="stp"><span class="num">STEP 03</span><h3>Interpret</h3><p>AI classifies themes and sentiment across open text, surfacing emerging issues before they show up in the headline number.</p></div>
-      <div class="stp"><span class="num">STEP 04</span><h3>Route</h3><p>Detractor and at-risk cases are pushed to the owning team with the context needed to act, in minutes rather than reporting cycles.</p></div>
-      <div class="stp"><span class="num">STEP 05</span><h3>Close</h3><p>Recovery journeys run automatically, with resolution and follow-up tracked back against the original response.</p></div>
-      <div class="stp"><span class="num">STEP 06</span><h3>Measure</h3><p>Journey and channel level reporting shows which fixes moved the score and which did not.</p></div>
+    <div class="tsec-head rv">
+      <div class="l">
+        <div class="tag"><i style="background:#7BE0C4"></i>Regional Leadership</div>
+        <h2>On the ground, in the market.</h2>
+      </div>
+      <p class="r">Delivery leadership sits in the region it serves - Manila, Jakarta and Surabaya - not remote from it.</p>
+    </div>
+
+    <div class="people four rv" data-hoverdim>
+      <div class="person">
+        <div class="p-photo">
+          <img src="images/team/marionne-armand.jpg" alt="Marionne Armand" width="640" height="800" loading="lazy">
+          <span class="p-rail"></span>
+          <span class="p-role">Program Director - Manila</span>
+        </div>
+        <div class="p-meta"><b>Marionne Armand</b><span>Program Director - Manila</span></div>
+      </div>
+
+      <div class="person">
+        <div class="p-photo">
+          <img src="images/team/soumyadip-mitra.jpg" alt="Soumyadip Mitra" width="640" height="800" loading="lazy">
+          <span class="p-rail"></span>
+          <span class="p-role">Client Delivery Manager - Jakarta</span>
+        </div>
+        <div class="p-meta"><b>Soumyadip Mitra</b><span>Client Delivery Manager - Jakarta</span></div>
+      </div>
+
+      <div class="person">
+        <div class="p-photo">
+          <span class="p-dual">Dual role</span>
+          <img src="images/team/fendy-mahatma.jpg" alt="Fendy Mahatma" width="585" height="1024" loading="lazy">
+          <span class="p-rail"></span>
+          <span class="p-role">Enterprise Architect - Surabaya<br>Also leads Surabaya Delivery Center</span>
+        </div>
+        <div class="p-meta"><b>Fendy Mahatma</b><span>Enterprise Architect - Surabaya</span></div>
+      </div>
+
+      <div class="person">
+        <div class="p-photo">
+          <img src="images/team/kurt-fatalla.jpg" alt="Kurt Fatalla" width="640" height="800" loading="lazy">
+          <span class="p-rail"></span>
+          <span class="p-role">Client Delivery Manager - Manila</span>
+        </div>
+        <div class="p-meta"><b>Kurt Fatalla</b><span>Client Delivery Manager - Manila</span></div>
+      </div>
+
+      <!-- Pushpa Ojha: withheld from publish until Oct 1, 2026. Re-enable by uncommenting below.
+      <div class="person">
+        <div class="p-photo">
+          <img src="images/team/pushpa-ojha.jpg" alt="Pushpa Ojha" width="640" height="800" loading="lazy">
+          <span class="p-rail"></span>
+          <span class="p-role">Service Delivery Manager - Manila</span>
+        </div>
+        <div class="p-meta"><b>Pushpa Ojha</b><span>Service Delivery Manager - Manila</span></div>
+      </div>
+      -->
     </div>
   </div>
 </section>
 
-<section>
+<!-- ---------- Delivery Teams ---------- -->
+<section class="tsec" id="delivery-teams">
   <div class="wrap">
-    <div class="rv"><div class="sec-tag">Outcomes</div><h2>What changes when feedback becomes operational.</h2></div>
-    <div class="outs rv">
-      <div class="out"><b>Minutes</b><small>Detractor cases reach the frontline while the experience is still fresh rather than at the end of a reporting cycle.</small></div>
-      <div class="out"><b>Every channel</b><small>One measurement model across web, app, email, messaging and in-journey moments.</small></div>
-      <div class="out"><b>Closed loop</b><small>Recovery tracked from response through resolution, so the programme proves it changed something.</small></div>
+    <div class="tsec-head rv">
+      <div class="l">
+        <div class="tag"><i style="background:#C6AEFF"></i>Delivery Teams</div>
+        <h2>Product, architecture and the business behind it.</h2>
+      </div>
+      <p class="r">The people building Prezio, shaping enterprise architecture, and keeping the commercial side honest.</p>
+    </div>
+
+    <div class="people four rv" data-hoverdim>
+      <div class="person">
+        <div class="p-photo">
+          <img src="images/team/nilesh-batra.jpg" alt="Nilesh Batra" width="640" height="800" loading="lazy">
+          <span class="p-rail"></span>
+          <span class="p-role">Technical Product Manager - Prezio</span>
+        </div>
+        <div class="p-meta"><b>Nilesh Batra</b><span>Technical Product Manager - Prezio</span></div>
+      </div>
+
+      <div class="person">
+        <div class="p-photo">
+          <img src="images/team/uzair-ghalib.jpg" alt="Uzair Ghalib" width="640" height="800" loading="lazy">
+          <span class="p-rail"></span>
+          <span class="p-role">Commercial Product Manager - Prezio</span>
+        </div>
+        <div class="p-meta"><b>Uzair Ghalib</b><span>Commercial Product Manager - Prezio</span></div>
+      </div>
+
+      <div class="person">
+        <div class="p-photo">
+          <img src="images/team/madhurima-jayam.jpg" alt="Madhurima Jayam" width="640" height="800" loading="lazy">
+          <span class="p-rail"></span>
+          <span class="p-role">Head of Finance</span>
+        </div>
+        <div class="p-meta"><b>Madhurima Jayam</b><span>Head of Finance</span></div>
+      </div>
+
+      <div class="person">
+        <div class="p-photo">
+          <img src="images/team/matloob-warsi.jpg" alt="Matloob Faiyaz Warsi" width="640" height="800" loading="lazy">
+          <span class="p-rail"></span>
+          <span class="p-role">Enterprise Architect</span>
+        </div>
+        <div class="p-meta"><b>Matloob Faiyaz Warsi</b><span>Enterprise Architect</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section>
+<!-- ---------- Hubs ---------- -->
+<section class="tsec" id="hubs">
   <div class="wrap">
-    <div class="rv"><div class="sec-tag">Where it runs</div><h2>Wherever experience is the product.</h2></div>
-    <div class="ucs rv">
-      <div class="uc"><span class="tag">Telecommunications</span><h3>Subscriber experience</h3><p>Post-interaction and in-app feedback tied to the subscriber profile, driving recovery journeys and retention offers.</p></div>
-      <div class="uc"><span class="tag">Aviation and travel</span><h3>Journey-stage listening</h3><p>Feedback captured at booking, check-in and arrival, so each stage is measured on its own terms.</p></div>
-      <div class="uc"><span class="tag">Financial services</span><h3>Onboarding and servicing</h3><p>Friction surfaced at application and servicing moments, with cases routed under strict consent and governance.</p></div>
-      <div class="uc"><span class="tag">Retail and commerce</span><h3>Post-purchase and fulfilment</h3><p>Delivery and returns experience measured continuously, with issues routed to operations as they emerge.</p></div>
+    <div class="tsec-head rv">
+      <div class="l">
+        <div class="tag"><i style="background:#FFC98F"></i>Global Delivery Hubs</div>
+        <h2>Five hubs. One delivery standard.</h2>
+      </div>
+      <p class="r">Each hub is led by someone from the leadership group above - the same people accountable for the work.</p>
     </div>
+
+    <div class="hub-belt rv">
+      <div class="hub"><span class="city">India</span><h4>Pune Delivery Center</h4><p>Lead: Ginu Sudhakaran</p></div>
+      <div class="hub"><span class="city">India</span><h4>Bangalore Delivery Center</h4><p>Lead: Koushik Banerjee</p></div>
+      <div class="hub"><span class="city">India</span><h4>Tirupati Delivery Center</h4><p>Lead: Praveen Reddy</p></div>
+      <div class="hub"><span class="city">Pakistan</span><h4>Islamabad Delivery Center</h4><p>Lead: Mansoor Alam</p></div>
+      <div class="hub"><span class="city">Indonesia</span><h4>Surabaya Delivery Center</h4><p>Lead: Fendy Mahatma</p></div>
+    </div>
+
+    <p class="tnote">Ginu, Mansoor, Praveen and Fendy hold dual leadership responsibilities across regional / practice roles and delivery hub leadership - marked above.</p>
   </div>
 </section>
 
 <section class="pcta">
   <div class="wrap">
-    <h2>Turn feedback into <em>action.</em></h2>
-    <p class="lede">We will show you CX Pulse running against your own journeys and touchpoints.</p>
+    <h2>Want to work <em>with this team?</em></h2>
+    <p class="lede">Whether you're a prospective client or a prospective hire - we'd like to hear from you.</p>
     <div class="cta-btns">
-      <a class="btn ghost" href="/prezio">Explore Prezio</a>
+      <a class="btn ghost" href="/case-studies">See our work</a>
       <a class="btn" href="/contact">Start the conversation <span class="arr">&rarr;</span></a>
     </div>
   </div>
 </section>
+
+<script>
+(function(){
+  "use strict";
+  // dim siblings while hovering a person (desktop pointers only)
+  if(!window.matchMedia('(hover:hover)').matches) return;
+  document.querySelectorAll('.people[data-hoverdim]').forEach(function(grid){
+    grid.addEventListener('mouseover', function(){ grid.classList.add('is-hovering'); });
+    grid.addEventListener('mouseleave', function(){ grid.classList.remove('is-hovering'); });
+  });
+})();
+</script>
 
 <footer>
   <div class="foot">
@@ -135,7 +426,7 @@
       <a href="/#platforms">Platforms</a>
       <a href="/#industries">Industries</a>
       <a href="/#proof">Proof</a>
-      <a href="/team">Leadership</a>
+      <a href="/#team">Leadership</a>
       <a href="/#faq">FAQ</a>
     </div>
     <div>
@@ -171,6 +462,7 @@
     <span><a href="/legal" style="color:inherit">Legal</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; Customer experience, engineered at altitude.</span>
   </div>
 </footer>
+
 <script>
 (function(){"use strict";
 var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;

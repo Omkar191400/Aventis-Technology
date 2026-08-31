@@ -3,12 +3,73 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CX Pulse | Aventis Technology</title>
-<meta name="description" content="CX Pulse is Aventis Technology experience management platform, capturing NPS, CSAT and CES across every touchpoint and routing insight to the teams who can act.">
+<title>Contact | Start a Project with Aventis Technology</title>
+<meta name="description" content="Talk to the Aventis Technology team about Adobe Experience Cloud, AEM, dynamic pricing, customer experience and digital engineering programmes across Asia-Pacific.">
+<link rel="canonical" href="https://www.aventistechnology.com/contact">
+<meta name="robots" content="index,follow">
 <link rel="preconnect" href="https://api.fontshare.com">
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="%233B66F6"/><path d="M14 46 L32 16 L50 46 L41 46 L32 30 L28 37 L25 33 Z" fill="white"/></svg>'>
+<style>
+.chero{padding:170px 48px 20px}
+.chero h1{font-family:var(--display);font-weight:600;font-size:clamp(38px,6vw,72px);line-height:1.04;
+          letter-spacing:-.04em;max-width:15ch}
+.chero h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1.5px var(--blue)}
+.chero .sub{color:var(--muted);font-size:clamp(16px,1.5vw,20px);max-width:56ch;margin-top:26px}
+
+.cgrid{display:grid;grid-template-columns:1fr 1.15fr;gap:72px;align-items:start;margin-top:20px}
+.cintro h2{font-size:clamp(24px,2.4vw,32px);max-width:18ch}
+.cintro p{color:var(--muted);font-size:16px;margin-top:18px;max-width:46ch}
+.cpoints{margin-top:34px;border-top:1px solid var(--line)}
+.cpt{padding:20px 0;border-bottom:1px solid var(--line)}
+.cpt b{display:block;font-family:var(--display);font-weight:600;font-size:16px;margin-bottom:6px}
+.cpt span{color:var(--muted);font-size:14.5px}
+.cmeta{margin-top:34px}
+.cmeta .lbl{font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.24em;
+            text-transform:uppercase;color:var(--blue);display:block;margin-bottom:10px}
+.cmeta p{color:var(--muted);font-size:15px;margin-bottom:20px}
+.cmeta a{color:var(--ink)}
+
+/* ---------- Form ---------- */
+.fwrap{border:1px solid var(--line-strong);border-radius:24px;padding:44px 40px;background:var(--panel-solid)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fld{margin-bottom:18px}
+.fld label{display:block;font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.12em;
+           text-transform:uppercase;color:var(--muted-2);margin-bottom:9px}
+.fld input,.fld select,.fld textarea{
+  width:100%;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:12px;
+  padding:14px 16px;color:var(--ink);font-family:var(--body);font-size:15.5px;
+  transition:border-color .25s,background .25s}
+.fld textarea{min-height:132px;resize:vertical}
+.fld input:focus,.fld select:focus,.fld textarea:focus{
+  outline:none;border-color:var(--blue);background:rgba(255,255,255,.08)}
+.fld input::placeholder,.fld textarea::placeholder{color:var(--muted-2);opacity:.7}
+.fld select{appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238FA4D8' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center;background-size:12px;padding-right:42px}
+.fld select option{background:#0A1A52;color:#fff}
+.fld .err{display:none;color:#FFB4B4;font-size:13px;margin-top:7px}
+.fld.invalid input,.fld.invalid select,.fld.invalid textarea{border-color:#FF8A8A}
+.fld.invalid .err{display:block}
+.consent{display:flex;gap:12px;align-items:flex-start;margin:6px 0 24px}
+.consent input{width:18px;height:18px;flex:none;margin-top:2px;accent-color:#3B66F6}
+.consent label{font-size:14px;color:var(--muted);letter-spacing:0;text-transform:none;font-family:var(--body);margin:0}
+.consent a{color:var(--blue)}
+.fsubmit{width:100%;justify-content:center;border:0;cursor:pointer;font-size:15px;padding:16px 26px}
+.fsubmit[disabled]{opacity:.6;cursor:not-allowed}
+.fnote{color:var(--muted-2);font-size:13px;margin-top:16px;text-align:center}
+.fmsg{display:none;border-radius:14px;padding:18px 20px;margin-bottom:22px;font-size:15px;line-height:1.55}
+.fmsg.ok{display:block;background:rgba(120,220,170,.12);border:1px solid rgba(120,220,170,.45);color:#CFF3E1}
+.fmsg.bad{display:block;background:rgba(255,140,140,.10);border:1px solid rgba(255,140,140,.4);color:#FFD6D6}
+.fmsg a{color:#fff;text-decoration:underline}
+@media(max-width:1080px){.cgrid{grid-template-columns:1fr;gap:44px}}
+@media(max-width:640px){
+  .chero{padding:130px 20px 10px}
+  .fwrap{padding:30px 22px;border-radius:18px}
+  .frow{grid-template-columns:1fr;gap:0}
+}
+</style>
 </head>
 <body>
 <canvas id="bg-field" aria-hidden="true"></canvas>
@@ -26,90 +87,251 @@
   </div>
 </nav>
 
-<header class="phero">
+<header class="chero">
   <div class="wrap">
-    <span class="kick"><i>CX Pulse</i> Experience management</span>
-    <h1>Feedback that <em>moves.</em></h1>
-    <p class="sub">Capture NPS, CSAT and CES across every touchpoint, let AI find the reason behind the score, and route the insight to the teams who can act on it while it still matters.</p>
-    <div class="cta">
-      <a class="btn" href="/contact">Request a walkthrough <span class="arr">&rarr;</span></a>
-      <a class="btn ghost" href="#how">See how it works</a>
-    </div>
+    <h1>Let's talk about <em>what's next.</em></h1>
+    <p class="sub">Whether you're standing up a new platform, cleaning up an existing estate, or trying to get more out of what you already licensed - start here.</p>
   </div>
 </header>
 
-<section class="strip">
+<section style="padding-top:56px">
   <div class="wrap">
-    <div class="rv"><div class="sec-tag">The problem</div><h2>Most feedback programmes measure, then stop.</h2><p class="lede">Scores get collected, dashboards get built, and very little changes for the customer who complained.</p></div>
-    <div class="strip-grid rv">
-      <div class="pain"><b>The score without the reason</b><p>A number tells you something is wrong. It does not tell you which journey, which release or which policy caused it.</p></div>
-      <div class="pain"><b>Feedback sits in its own silo</b><p>Survey data disconnected from the customer profile cannot trigger a journey, inform an offer or reach the frontline.</p></div>
-      <div class="pain"><b>The loop never closes</b><p>By the time a detractor case reaches someone empowered to fix it, the customer has already moved on.</p></div>
+    <div class="cgrid">
+
+      <div class="cintro rv">
+        <h2>Tell us where you are today.</h2>
+        <p>We'll map the route from there. Every enquiry goes to a senior practitioner, not a queue - you'll hear back within one business day.</p>
+
+        <div class="cpoints">
+          <div class="cpt">
+            <b>A conversation, not a pitch deck</b>
+            <span>First call is about your estate, your constraints and what's actually blocking you.</span>
+          </div>
+          <div class="cpt">
+            <b>People who'll do the work</b>
+            <span>The architects and leads you meet early are the ones who stay on the engagement.</span>
+          </div>
+          <div class="cpt">
+            <b>An honest scope</b>
+            <span>If it's not a fit, or the timeline isn't realistic, we'll say so before anyone signs anything.</span>
+          </div>
+        </div>
+
+        <div class="cmeta">
+          <span class="lbl">Registered office</span>
+          <p>Aventis Technologies Pte. Ltd.<br>2 Venture Drive, #13-26<br>Vision Exchange, Singapore 608526</p>
+
+          <span class="lbl">Email</span>
+          <p><a href="mailto:hello@aventistechnology.com">hello@aventistechnology.com</a></p>
+
+          <span class="lbl">Delivery presence</span>
+          <p>Singapore &middot; Jakarta &middot; Manila &middot; Bangalore &middot; Pune &middot; Tirupati &middot; Toronto</p>
+        </div>
+      </div>
+
+      <div class="rv">
+        <div class="fwrap">
+          <div class="fmsg" id="fmsg" role="status" aria-live="polite"></div>
+
+          <form id="contact-form" novalidate>
+            <div class="frow">
+              <div class="fld">
+                <label for="cf-name">Your name</label>
+                <input type="text" id="cf-name" name="name" placeholder="Jane Tan" autocomplete="name">
+                <span class="err">Please enter your name.</span>
+              </div>
+              <div class="fld">
+                <label for="cf-company">Company</label>
+                <input type="text" id="cf-company" name="company" placeholder="Company name" autocomplete="organization">
+                <span class="err">Please enter your company.</span>
+              </div>
+            </div>
+
+            <div class="frow">
+              <div class="fld">
+                <label for="cf-email">Work email</label>
+                <input type="email" id="cf-email" name="email" placeholder="jane@company.com" autocomplete="email">
+                <span class="err">Please enter a valid email address.</span>
+              </div>
+              <div class="fld">
+                <label for="cf-phone">Phone <span style="text-transform:none;letter-spacing:0">(optional)</span></label>
+                <input type="tel" id="cf-phone" name="phone" placeholder="+65 0000 0000" autocomplete="tel">
+              </div>
+            </div>
+
+            <div class="fld">
+              <label for="cf-topic">What can we help with?</label>
+              <select id="cf-topic" name="topic">
+                <option value="">Select a topic</option>
+                <option>Adobe Experience Cloud / AEM</option>
+                <option>Customer data &amp; personalisation</option>
+                <option>Prezio - dynamic pricing</option>
+                <option>CX Pulse - tNPS &amp; feedback</option>
+                <option>Digital wallets &amp; payments</option>
+                <option>Mobile app development</option>
+                <option>Data privacy &amp; compliance</option>
+                <option>Something else</option>
+              </select>
+              <span class="err">Please choose a topic.</span>
+            </div>
+
+            <div class="fld">
+              <label for="cf-message">A bit of context</label>
+              <textarea id="cf-message" name="message" placeholder="What are you trying to achieve, and what's in the way right now?"></textarea>
+              <span class="err">Please tell us a little about your project.</span>
+            </div>
+
+            <div class="consent">
+              <input type="checkbox" id="cf-consent" name="consent">
+              <label for="cf-consent">I agree that Aventis Technology may store and process the details above in order to respond to this enquiry, as described in the <a href="/privacy">Privacy Policy</a>.</label>
+            </div>
+            <div class="fld" style="margin-top:-16px"><span class="err" id="consent-err">Please accept the privacy notice to continue.</span></div>
+
+            <!-- honeypot: hidden from humans, catches bots -->
+            <div style="position:absolute;left:-9999px" aria-hidden="true">
+              <label for="cf-website">Do not fill this in</label>
+              <input type="text" id="cf-website" name="_gotcha" tabindex="-1" autocomplete="off">
+            </div>
+
+            <button type="submit" class="btn fsubmit" id="cf-submit">Send enquiry <span class="arr">&rarr;</span></button>
+            <p class="fnote">We'll only use these details to reply to you. No newsletters, no lists.</p>
+          </form>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="rv"><div class="sec-tag">Capabilities</div><h2>Listen everywhere, understand quickly, act while it counts.</h2><p class="lede">CX Pulse is built to shorten the distance between what a customer says and what your organisation does about it.</p></div>
-    <div class="caps rv">
-      <div class="cap"><span class="n">01</span><h3>Multi-channel capture</h3><p>Web, app, email, messaging and in-journey surveys, all feeding one measurement model across NPS, CSAT and CES.</p></div>
-      <div class="cap"><span class="n">02</span><h3>In-journey triggers</h3><p>Surveys fire at the moment that matters, tied to real events rather than scheduled batches.</p></div>
-      <div class="cap"><span class="n">03</span><h3>AI-read verbatims</h3><p>Themes, sentiment and emerging issues surfaced automatically from open text, at whatever volume arrives.</p></div>
-      <div class="cap"><span class="n">04</span><h3>Profile-linked feedback</h3><p>Every response is stitched to the customer profile, so scores can drive segmentation, journeys and offers.</p></div>
-      <div class="cap"><span class="n">05</span><h3>Closed-loop workflows</h3><p>Detractor cases route to owners with context attached, tracked through to resolution and follow-up.</p></div>
-      <div class="cap"><span class="n">06</span><h3>Dashboards and exports</h3><p>Journey and channel level reporting for the business, with clean exports into the wider analytics estate.</p></div>
-    </div>
-  </div>
-</section>
+<script>
+(function(){
+  "use strict";
+  /* ------------------------------------------------------------------
+     FORM ENDPOINT
+     Set this to your Formspree endpoint, e.g.
+       var ENDPOINT = "https://formspree.io/f/abcdwxyz";
+     Leave empty and the form falls back to opening the visitor's mail
+     client with the details pre-filled, so it never silently fails.
+     ------------------------------------------------------------------ */
+  var ENDPOINT = "";
+  var FALLBACK_EMAIL = "hello@aventistechnology.com";
 
-<section class="flow" id="how">
-  <div class="wrap">
-    <div class="rv"><div class="sec-tag">How it works</div><h2>From a single response to a resolved case.</h2><p class="lede">Every stage is designed to reduce the time between a customer speaking and someone acting.</p></div>
-    <div class="steps rv">
-      <div class="stp"><span class="num">STEP 01</span><h3>Capture</h3><p>Surveys are triggered by real events across web, app, email and messaging, sized to the moment rather than the calendar.</p></div>
-      <div class="stp"><span class="num">STEP 02</span><h3>Unify</h3><p>Responses are stitched to the customer profile, so a score carries the full context of who gave it and what preceded it.</p></div>
-      <div class="stp"><span class="num">STEP 03</span><h3>Interpret</h3><p>AI classifies themes and sentiment across open text, surfacing emerging issues before they show up in the headline number.</p></div>
-      <div class="stp"><span class="num">STEP 04</span><h3>Route</h3><p>Detractor and at-risk cases are pushed to the owning team with the context needed to act, in minutes rather than reporting cycles.</p></div>
-      <div class="stp"><span class="num">STEP 05</span><h3>Close</h3><p>Recovery journeys run automatically, with resolution and follow-up tracked back against the original response.</p></div>
-      <div class="stp"><span class="num">STEP 06</span><h3>Measure</h3><p>Journey and channel level reporting shows which fixes moved the score and which did not.</p></div>
-    </div>
-  </div>
-</section>
+  var form = document.getElementById('contact-form');
+  if(!form) return;
+  var msg = document.getElementById('fmsg');
+  var btn = document.getElementById('cf-submit');
 
-<section>
-  <div class="wrap">
-    <div class="rv"><div class="sec-tag">Outcomes</div><h2>What changes when feedback becomes operational.</h2></div>
-    <div class="outs rv">
-      <div class="out"><b>Minutes</b><small>Detractor cases reach the frontline while the experience is still fresh rather than at the end of a reporting cycle.</small></div>
-      <div class="out"><b>Every channel</b><small>One measurement model across web, app, email, messaging and in-journey moments.</small></div>
-      <div class="out"><b>Closed loop</b><small>Recovery tracked from response through resolution, so the programme proves it changed something.</small></div>
-    </div>
-  </div>
-</section>
+  function fldOf(el){ return el.closest('.fld'); }
+  function setInvalid(el, bad){
+    var f = fldOf(el); if(!f) return;
+    f.classList.toggle('invalid', !!bad);
+  }
+  function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
 
-<section>
-  <div class="wrap">
-    <div class="rv"><div class="sec-tag">Where it runs</div><h2>Wherever experience is the product.</h2></div>
-    <div class="ucs rv">
-      <div class="uc"><span class="tag">Telecommunications</span><h3>Subscriber experience</h3><p>Post-interaction and in-app feedback tied to the subscriber profile, driving recovery journeys and retention offers.</p></div>
-      <div class="uc"><span class="tag">Aviation and travel</span><h3>Journey-stage listening</h3><p>Feedback captured at booking, check-in and arrival, so each stage is measured on its own terms.</p></div>
-      <div class="uc"><span class="tag">Financial services</span><h3>Onboarding and servicing</h3><p>Friction surfaced at application and servicing moments, with cases routed under strict consent and governance.</p></div>
-      <div class="uc"><span class="tag">Retail and commerce</span><h3>Post-purchase and fulfilment</h3><p>Delivery and returns experience measured continuously, with issues routed to operations as they emerge.</p></div>
-    </div>
-  </div>
-</section>
+  function validate(){
+    var ok = true;
+    var name = document.getElementById('cf-name');
+    var company = document.getElementById('cf-company');
+    var email = document.getElementById('cf-email');
+    var topic = document.getElementById('cf-topic');
+    var message = document.getElementById('cf-message');
+    var consent = document.getElementById('cf-consent');
 
-<section class="pcta">
-  <div class="wrap">
-    <h2>Turn feedback into <em>action.</em></h2>
-    <p class="lede">We will show you CX Pulse running against your own journeys and touchpoints.</p>
-    <div class="cta-btns">
-      <a class="btn ghost" href="/prezio">Explore Prezio</a>
-      <a class="btn" href="/contact">Start the conversation <span class="arr">&rarr;</span></a>
-    </div>
-  </div>
-</section>
+    [[name, name.value.trim().length > 1],
+     [company, company.value.trim().length > 1],
+     [email, validEmail(email.value.trim())],
+     [topic, topic.value !== ''],
+     [message, message.value.trim().length > 9]].forEach(function(pair){
+       var good = pair[1];
+       setInvalid(pair[0], !good);
+       if(!good) ok = false;
+     });
+
+    var cErr = document.getElementById('consent-err');
+    if(!consent.checked){ cErr.style.display = 'block'; ok = false; }
+    else { cErr.style.display = 'none'; }
+
+    return ok;
+  }
+
+  ['cf-name','cf-company','cf-email','cf-topic','cf-message'].forEach(function(id){
+    var el = document.getElementById(id);
+    el.addEventListener('input', function(){ setInvalid(el, false); });
+    el.addEventListener('change', function(){ setInvalid(el, false); });
+  });
+  document.getElementById('cf-consent').addEventListener('change', function(){
+    if(this.checked) document.getElementById('consent-err').style.display = 'none';
+  });
+
+  function show(kind, html){
+    msg.className = 'fmsg ' + kind;
+    msg.innerHTML = html;
+    msg.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+
+  function mailtoFallback(data){
+    var body = 'Name: ' + data.name + '\n'
+             + 'Company: ' + data.company + '\n'
+             + 'Email: ' + data.email + '\n'
+             + 'Phone: ' + (data.phone || '-') + '\n'
+             + 'Topic: ' + data.topic + '\n\n'
+             + data.message;
+    var href = 'mailto:' + FALLBACK_EMAIL
+             + '?subject=' + encodeURIComponent('Website enquiry - ' + data.company)
+             + '&body=' + encodeURIComponent(body);
+    window.location.href = href;
+    show('ok', "We've opened your email app with the details filled in - just hit send. "
+             + "If nothing opened, email us directly at <a href='mailto:" + FALLBACK_EMAIL + "'>" + FALLBACK_EMAIL + "</a>.");
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    msg.className = 'fmsg';
+    if(!validate()){
+      var bad = form.querySelector('.fld.invalid input, .fld.invalid select, .fld.invalid textarea');
+      if(bad) bad.focus();
+      return;
+    }
+
+    // honeypot tripped -> pretend success, drop silently
+    if(document.getElementById('cf-website').value){
+      show('ok', 'Thanks - your enquiry is on its way.');
+      form.reset();
+      return;
+    }
+
+    var data = {
+      name: document.getElementById('cf-name').value.trim(),
+      company: document.getElementById('cf-company').value.trim(),
+      email: document.getElementById('cf-email').value.trim(),
+      phone: document.getElementById('cf-phone').value.trim(),
+      topic: document.getElementById('cf-topic').value,
+      message: document.getElementById('cf-message').value.trim()
+    };
+
+    if(!ENDPOINT){ mailtoFallback(data); return; }
+
+    btn.disabled = true;
+    btn.innerHTML = 'Sending&hellip;';
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function(res){
+      if(!res.ok) throw new Error('Bad status ' + res.status);
+      form.reset();
+      show('ok', '<b>Thanks - we\u2019ve got it.</b><br>A senior practitioner will get back to you within one business day.');
+    }).catch(function(){
+      show('bad', "Something went wrong sending that. Please email us directly at "
+                + "<a href='mailto:" + FALLBACK_EMAIL + "'>" + FALLBACK_EMAIL + "</a> and we'll pick it up straight away.");
+    }).finally(function(){
+      btn.disabled = false;
+      btn.innerHTML = 'Send enquiry <span class="arr">&rarr;</span>';
+    });
+  });
+})();
+</script>
 
 <footer>
   <div class="foot">
@@ -171,6 +393,7 @@
     <span><a href="/legal" style="color:inherit">Legal</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; Customer experience, engineered at altitude.</span>
   </div>
 </footer>
+
 <script>
 (function(){"use strict";
 var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;

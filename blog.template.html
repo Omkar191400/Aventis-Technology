@@ -3,12 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CX Pulse | Aventis Technology</title>
-<meta name="description" content="CX Pulse is Aventis Technology experience management platform, capturing NPS, CSAT and CES across every touchpoint and routing insight to the teams who can act.">
+<title>Blog | Insights on Digital Strategy, AI &amp; CX | Aventis Technology</title>
+<meta name="description" content="Perspectives on enterprise digital strategy, agentic AI, customer experience and technology architecture from the Aventis Technology team.">
+<link rel="canonical" href="https://www.aventistechnology.com/blog">
+<meta name="robots" content="index,follow,max-snippet:-1">
 <link rel="preconnect" href="https://api.fontshare.com">
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="%233B66F6"/><path d="M14 46 L32 16 L50 46 L41 46 L32 30 L28 37 L25 33 Z" fill="white"/></svg>'>
+<style>
+.blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-top:60px}
+.bpost{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--panel-solid);
+       text-decoration:none;color:inherit;display:flex;flex-direction:column;
+       transition:border-color .35s,transform .5s var(--ease),box-shadow .35s}
+.bpost:hover{border-color:rgba(255,255,255,.5);transform:translateY(-4px);box-shadow:0 22px 46px rgba(0,0,0,.30)}
+.bpost .thumb{aspect-ratio:16/10;background:var(--navy-2);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.bpost .thumb img{width:100%;height:100%;object-fit:contain;display:block}
+.bpost .body{padding:26px 26px 30px}
+.bpost .meta{font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.2em;
+             text-transform:uppercase;color:var(--blue);margin-bottom:14px;display:block}
+.bpost h3{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:-.015em;
+          margin-bottom:10px;line-height:1.28}
+.bpost p{color:var(--muted);font-size:15px;line-height:1.6}
+.blog-empty{margin-top:60px;padding:60px 40px;text-align:center;border:1px solid var(--line);
+            border-radius:20px;background:var(--panel-solid);color:var(--muted)}
+@media(max-width:640px){.blog-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <canvas id="bg-field" aria-hidden="true"></canvas>
@@ -28,84 +48,31 @@
 
 <header class="phero">
   <div class="wrap">
-    <span class="kick"><i>CX Pulse</i> Experience management</span>
-    <h1>Feedback that <em>moves.</em></h1>
-    <p class="sub">Capture NPS, CSAT and CES across every touchpoint, let AI find the reason behind the score, and route the insight to the teams who can act on it while it still matters.</p>
-    <div class="cta">
-      <a class="btn" href="/contact">Request a walkthrough <span class="arr">&rarr;</span></a>
-      <a class="btn ghost" href="#how">See how it works</a>
-    </div>
+    <span class="kick"><i>Blog</i> Notes from the team</span>
+    <h1>Ideas on where digital <em>is heading.</em></h1>
+    <p class="sub">Perspectives on strategy, architecture, AI and customer experience from the people building it.</p>
   </div>
 </header>
 
-<section class="strip">
+<section id="posts">
   <div class="wrap">
-    <div class="rv"><div class="sec-tag">The problem</div><h2>Most feedback programmes measure, then stop.</h2><p class="lede">Scores get collected, dashboards get built, and very little changes for the customer who complained.</p></div>
-    <div class="strip-grid rv">
-      <div class="pain"><b>The score without the reason</b><p>A number tells you something is wrong. It does not tell you which journey, which release or which policy caused it.</p></div>
-      <div class="pain"><b>Feedback sits in its own silo</b><p>Survey data disconnected from the customer profile cannot trigger a journey, inform an offer or reach the frontline.</p></div>
-      <div class="pain"><b>The loop never closes</b><p>By the time a detractor case reaches someone empowered to fix it, the customer has already moved on.</p></div>
+    <div class="rv">
+      <div class="sec-tag">Latest writing</div>
+      <h2>From our Medium.</h2>
+      <p class="lede">Published on Medium, mirrored here. Follow along for the full archive.</p>
     </div>
-  </div>
-</section>
 
-<section>
-  <div class="wrap">
-    <div class="rv"><div class="sec-tag">Capabilities</div><h2>Listen everywhere, understand quickly, act while it counts.</h2><p class="lede">CX Pulse is built to shorten the distance between what a customer says and what your organisation does about it.</p></div>
-    <div class="caps rv">
-      <div class="cap"><span class="n">01</span><h3>Multi-channel capture</h3><p>Web, app, email, messaging and in-journey surveys, all feeding one measurement model across NPS, CSAT and CES.</p></div>
-      <div class="cap"><span class="n">02</span><h3>In-journey triggers</h3><p>Surveys fire at the moment that matters, tied to real events rather than scheduled batches.</p></div>
-      <div class="cap"><span class="n">03</span><h3>AI-read verbatims</h3><p>Themes, sentiment and emerging issues surfaced automatically from open text, at whatever volume arrives.</p></div>
-      <div class="cap"><span class="n">04</span><h3>Profile-linked feedback</h3><p>Every response is stitched to the customer profile, so scores can drive segmentation, journeys and offers.</p></div>
-      <div class="cap"><span class="n">05</span><h3>Closed-loop workflows</h3><p>Detractor cases route to owners with context attached, tracked through to resolution and follow-up.</p></div>
-      <div class="cap"><span class="n">06</span><h3>Dashboards and exports</h3><p>Journey and channel level reporting for the business, with clean exports into the wider analytics estate.</p></div>
-    </div>
-  </div>
-</section>
+<!--POSTS-->
 
-<section class="flow" id="how">
-  <div class="wrap">
-    <div class="rv"><div class="sec-tag">How it works</div><h2>From a single response to a resolved case.</h2><p class="lede">Every stage is designed to reduce the time between a customer speaking and someone acting.</p></div>
-    <div class="steps rv">
-      <div class="stp"><span class="num">STEP 01</span><h3>Capture</h3><p>Surveys are triggered by real events across web, app, email and messaging, sized to the moment rather than the calendar.</p></div>
-      <div class="stp"><span class="num">STEP 02</span><h3>Unify</h3><p>Responses are stitched to the customer profile, so a score carries the full context of who gave it and what preceded it.</p></div>
-      <div class="stp"><span class="num">STEP 03</span><h3>Interpret</h3><p>AI classifies themes and sentiment across open text, surfacing emerging issues before they show up in the headline number.</p></div>
-      <div class="stp"><span class="num">STEP 04</span><h3>Route</h3><p>Detractor and at-risk cases are pushed to the owning team with the context needed to act, in minutes rather than reporting cycles.</p></div>
-      <div class="stp"><span class="num">STEP 05</span><h3>Close</h3><p>Recovery journeys run automatically, with resolution and follow-up tracked back against the original response.</p></div>
-      <div class="stp"><span class="num">STEP 06</span><h3>Measure</h3><p>Journey and channel level reporting shows which fixes moved the score and which did not.</p></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="rv"><div class="sec-tag">Outcomes</div><h2>What changes when feedback becomes operational.</h2></div>
-    <div class="outs rv">
-      <div class="out"><b>Minutes</b><small>Detractor cases reach the frontline while the experience is still fresh rather than at the end of a reporting cycle.</small></div>
-      <div class="out"><b>Every channel</b><small>One measurement model across web, app, email, messaging and in-journey moments.</small></div>
-      <div class="out"><b>Closed loop</b><small>Recovery tracked from response through resolution, so the programme proves it changed something.</small></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="rv"><div class="sec-tag">Where it runs</div><h2>Wherever experience is the product.</h2></div>
-    <div class="ucs rv">
-      <div class="uc"><span class="tag">Telecommunications</span><h3>Subscriber experience</h3><p>Post-interaction and in-app feedback tied to the subscriber profile, driving recovery journeys and retention offers.</p></div>
-      <div class="uc"><span class="tag">Aviation and travel</span><h3>Journey-stage listening</h3><p>Feedback captured at booking, check-in and arrival, so each stage is measured on its own terms.</p></div>
-      <div class="uc"><span class="tag">Financial services</span><h3>Onboarding and servicing</h3><p>Friction surfaced at application and servicing moments, with cases routed under strict consent and governance.</p></div>
-      <div class="uc"><span class="tag">Retail and commerce</span><h3>Post-purchase and fulfilment</h3><p>Delivery and returns experience measured continuously, with issues routed to operations as they emerge.</p></div>
-    </div>
   </div>
 </section>
 
 <section class="pcta">
   <div class="wrap">
-    <h2>Turn feedback into <em>action.</em></h2>
-    <p class="lede">We will show you CX Pulse running against your own journeys and touchpoints.</p>
+    <h2>Let's build what's <em>next.</em></h2>
+    <p class="lede">Tell us where you are today and we will map the route from here.</p>
     <div class="cta-btns">
-      <a class="btn ghost" href="/prezio">Explore Prezio</a>
+      <a class="btn ghost" href="/case-studies">Explore our work</a>
       <a class="btn" href="/contact">Start the conversation <span class="arr">&rarr;</span></a>
     </div>
   </div>
@@ -171,6 +138,7 @@
     <span><a href="/legal" style="color:inherit">Legal</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; Customer experience, engineered at altitude.</span>
   </div>
 </footer>
+
 <script>
 (function(){"use strict";
 var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;

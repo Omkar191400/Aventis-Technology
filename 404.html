@@ -3,12 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CX Pulse | Aventis Technology</title>
-<meta name="description" content="CX Pulse is Aventis Technology experience management platform, capturing NPS, CSAT and CES across every touchpoint and routing insight to the teams who can act.">
+<title>Page not found | Aventis Technology</title>
+<meta name="description" content="The page you were looking for could not be found.">
+<meta name="robots" content="noindex,follow">
 <link rel="preconnect" href="https://api.fontshare.com">
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="%233B66F6"/><path d="M14 46 L32 16 L50 46 L41 46 L32 30 L28 37 L25 33 Z" fill="white"/></svg>'>
+<style>
+.nf{min-height:82vh;display:flex;align-items:center;padding:150px 48px 90px}
+.nf-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;width:100%}
+.nf .code{font-family:var(--display);font-weight:600;font-size:clamp(70px,10vw,132px);line-height:.9;
+          letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.6px var(--blue);display:block;margin-bottom:22px}
+.nf h1{font-family:var(--display);font-weight:600;font-size:clamp(28px,3.6vw,44px);line-height:1.08;
+       letter-spacing:-.03em;max-width:16ch}
+.nf p{color:var(--muted);font-size:clamp(15.5px,1.3vw,18px);max-width:46ch;margin-top:20px}
+.nf .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+
+/* radar panel */
+.radar-panel{position:relative;border:1px solid var(--line-strong);border-radius:26px;
+  background:var(--panel-solid);padding:26px 26px 22px;overflow:hidden}
+.radar-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:16px}
+.radar-head .lbl{font-family:var(--display);font-size:10.5px;font-weight:700;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--blue)}
+.radar-head .status{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--muted-2);
+  font-family:var(--display);letter-spacing:.06em}
+.radar-head .dot{width:7px;height:7px;border-radius:50%;background:#7FE3B0;box-shadow:0 0 0 0 rgba(127,227,176,.6);
+  animation:pulseDot 2.2s infinite}
+@keyframes pulseDot{0%{box-shadow:0 0 0 0 rgba(127,227,176,.55)}70%{box-shadow:0 0 0 9px rgba(127,227,176,0)}100%{box-shadow:0 0 0 0 rgba(127,227,176,0)}}
+#radar{display:block;width:100%;height:340px;border-radius:16px;cursor:crosshair;
+  background:radial-gradient(circle at 50% 50%, rgba(143,178,255,.09), rgba(10,26,82,.25) 70%)}
+.radar-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;
+  font-size:12.5px;color:var(--muted-2)}
+.radar-foot kbd{font-family:var(--display);font-size:11px;border:1px solid var(--line);
+  border-radius:6px;padding:3px 7px;color:var(--muted)}
+.radar-tip{min-height:18px;color:var(--blue-soft);font-family:var(--display);font-size:12.5px;letter-spacing:.04em}
+
+.nf-links{margin-top:52px;padding-top:30px;border-top:1px solid var(--line);
+          display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.nf-links a{text-decoration:none;color:var(--ink);display:block}
+.nf-links a b{display:block;font-family:var(--display);font-weight:600;font-size:15.5px;
+              letter-spacing:-.01em;margin-bottom:5px;transition:color .25s}
+.nf-links a span{color:var(--muted);font-size:13.5px}
+.nf-links a:hover b{color:var(--blue)}
+@media(max-width:1000px){.nf-grid{grid-template-columns:1fr;gap:40px}.nf{padding:130px 20px 70px}}
+@media(max-width:900px){.nf-links{grid-template-columns:1fr 1fr;gap:20px}}
+@media(max-width:520px){.nf-links{grid-template-columns:1fr}#radar{height:280px}}
+</style>
 </head>
 <body>
 <canvas id="bg-field" aria-hidden="true"></canvas>
@@ -26,87 +67,42 @@
   </div>
 </nav>
 
-<header class="phero">
+<section class="nf">
   <div class="wrap">
-    <span class="kick"><i>CX Pulse</i> Experience management</span>
-    <h1>Feedback that <em>moves.</em></h1>
-    <p class="sub">Capture NPS, CSAT and CES across every touchpoint, let AI find the reason behind the score, and route the insight to the teams who can act on it while it still matters.</p>
-    <div class="cta">
-      <a class="btn" href="/contact">Request a walkthrough <span class="arr">&rarr;</span></a>
-      <a class="btn ghost" href="#how">See how it works</a>
-    </div>
-  </div>
-</header>
+    <div class="nf-grid">
 
-<section class="strip">
-  <div class="wrap">
-    <div class="rv"><div class="sec-tag">The problem</div><h2>Most feedback programmes measure, then stop.</h2><p class="lede">Scores get collected, dashboards get built, and very little changes for the customer who complained.</p></div>
-    <div class="strip-grid rv">
-      <div class="pain"><b>The score without the reason</b><p>A number tells you something is wrong. It does not tell you which journey, which release or which policy caused it.</p></div>
-      <div class="pain"><b>Feedback sits in its own silo</b><p>Survey data disconnected from the customer profile cannot trigger a journey, inform an offer or reach the frontline.</p></div>
-      <div class="pain"><b>The loop never closes</b><p>By the time a detractor case reaches someone empowered to fix it, the customer has already moved on.</p></div>
-    </div>
-  </div>
-</section>
+      <div>
+        <span class="code">404</span>
+        <h1>This route doesn't exist.</h1>
+        <p>The page you were looking for has moved, been renamed, or never existed. Sweep the signal field - we've left the good routes out there.</p>
+        <div class="cta">
+          <a class="btn" href="/">Back to home <span class="arr">&rarr;</span></a>
+          <a class="btn ghost" href="/contact">Contact us</a>
+        </div>
+      </div>
 
-<section>
-  <div class="wrap">
-    <div class="rv"><div class="sec-tag">Capabilities</div><h2>Listen everywhere, understand quickly, act while it counts.</h2><p class="lede">CX Pulse is built to shorten the distance between what a customer says and what your organisation does about it.</p></div>
-    <div class="caps rv">
-      <div class="cap"><span class="n">01</span><h3>Multi-channel capture</h3><p>Web, app, email, messaging and in-journey surveys, all feeding one measurement model across NPS, CSAT and CES.</p></div>
-      <div class="cap"><span class="n">02</span><h3>In-journey triggers</h3><p>Surveys fire at the moment that matters, tied to real events rather than scheduled batches.</p></div>
-      <div class="cap"><span class="n">03</span><h3>AI-read verbatims</h3><p>Themes, sentiment and emerging issues surfaced automatically from open text, at whatever volume arrives.</p></div>
-      <div class="cap"><span class="n">04</span><h3>Profile-linked feedback</h3><p>Every response is stitched to the customer profile, so scores can drive segmentation, journeys and offers.</p></div>
-      <div class="cap"><span class="n">05</span><h3>Closed-loop workflows</h3><p>Detractor cases route to owners with context attached, tracked through to resolution and follow-up.</p></div>
-      <div class="cap"><span class="n">06</span><h3>Dashboards and exports</h3><p>Journey and channel level reporting for the business, with clean exports into the wider analytics estate.</p></div>
-    </div>
-  </div>
-</section>
+      <div class="radar-panel">
+        <div class="radar-head">
+          <span class="lbl">Signal recovery</span>
+          <span class="status"><i class="dot"></i> Scanning</span>
+        </div>
+        <canvas id="radar" aria-label="Interactive radar. Move your pointer to reveal pages, then click one to navigate."></canvas>
+        <div class="radar-foot">
+          <span class="radar-tip" id="radar-tip">Move to sweep &middot; click a node to jump</span>
+          <span><kbd>4</kbd> <kbd>0</kbd> <kbd>4</kbd></span>
+        </div>
+      </div>
 
-<section class="flow" id="how">
-  <div class="wrap">
-    <div class="rv"><div class="sec-tag">How it works</div><h2>From a single response to a resolved case.</h2><p class="lede">Every stage is designed to reduce the time between a customer speaking and someone acting.</p></div>
-    <div class="steps rv">
-      <div class="stp"><span class="num">STEP 01</span><h3>Capture</h3><p>Surveys are triggered by real events across web, app, email and messaging, sized to the moment rather than the calendar.</p></div>
-      <div class="stp"><span class="num">STEP 02</span><h3>Unify</h3><p>Responses are stitched to the customer profile, so a score carries the full context of who gave it and what preceded it.</p></div>
-      <div class="stp"><span class="num">STEP 03</span><h3>Interpret</h3><p>AI classifies themes and sentiment across open text, surfacing emerging issues before they show up in the headline number.</p></div>
-      <div class="stp"><span class="num">STEP 04</span><h3>Route</h3><p>Detractor and at-risk cases are pushed to the owning team with the context needed to act, in minutes rather than reporting cycles.</p></div>
-      <div class="stp"><span class="num">STEP 05</span><h3>Close</h3><p>Recovery journeys run automatically, with resolution and follow-up tracked back against the original response.</p></div>
-      <div class="stp"><span class="num">STEP 06</span><h3>Measure</h3><p>Journey and channel level reporting shows which fixes moved the score and which did not.</p></div>
     </div>
-  </div>
-</section>
 
-<section>
-  <div class="wrap">
-    <div class="rv"><div class="sec-tag">Outcomes</div><h2>What changes when feedback becomes operational.</h2></div>
-    <div class="outs rv">
-      <div class="out"><b>Minutes</b><small>Detractor cases reach the frontline while the experience is still fresh rather than at the end of a reporting cycle.</small></div>
-      <div class="out"><b>Every channel</b><small>One measurement model across web, app, email, messaging and in-journey moments.</small></div>
-      <div class="out"><b>Closed loop</b><small>Recovery tracked from response through resolution, so the programme proves it changed something.</small></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="rv"><div class="sec-tag">Where it runs</div><h2>Wherever experience is the product.</h2></div>
-    <div class="ucs rv">
-      <div class="uc"><span class="tag">Telecommunications</span><h3>Subscriber experience</h3><p>Post-interaction and in-app feedback tied to the subscriber profile, driving recovery journeys and retention offers.</p></div>
-      <div class="uc"><span class="tag">Aviation and travel</span><h3>Journey-stage listening</h3><p>Feedback captured at booking, check-in and arrival, so each stage is measured on its own terms.</p></div>
-      <div class="uc"><span class="tag">Financial services</span><h3>Onboarding and servicing</h3><p>Friction surfaced at application and servicing moments, with cases routed under strict consent and governance.</p></div>
-      <div class="uc"><span class="tag">Retail and commerce</span><h3>Post-purchase and fulfilment</h3><p>Delivery and returns experience measured continuously, with issues routed to operations as they emerge.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="pcta">
-  <div class="wrap">
-    <h2>Turn feedback into <em>action.</em></h2>
-    <p class="lede">We will show you CX Pulse running against your own journeys and touchpoints.</p>
-    <div class="cta-btns">
-      <a class="btn ghost" href="/prezio">Explore Prezio</a>
-      <a class="btn" href="/contact">Start the conversation <span class="arr">&rarr;</span></a>
+    <div class="nf-links">
+      <a href="/services"><b>Services</b><span>What we do, end to end</span></a>
+      <a href="/case-studies"><b>Work</b><span>Selected case studies</span></a>
+      <a href="/prezio"><b>Prezio</b><span>Dynamic pricing engine</span></a>
+      <a href="/cx-pulse"><b>CX Pulse</b><span>tNPS &amp; feedback platform</span></a>
+      <a href="/team"><b>Team</b><span>Who we are</span></a>
+      <a href="/blog"><b>Blog</b><span>Notes from the team</span></a>
+      <a href="/contact"><b>Start a project</b><span>Tell us where you are</span></a>
     </div>
   </div>
 </section>
@@ -171,6 +167,7 @@
     <span><a href="/legal" style="color:inherit">Legal</a> &middot; <a href="/privacy" style="color:inherit">Privacy</a> &middot; Customer experience, engineered at altitude.</span>
   </div>
 </footer>
+
 <script>
 (function(){"use strict";
 var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -501,6 +498,166 @@ if(cv){ if(BG==='cells') initCells(); else initGraph(); }
     if(a) a.addEventListener('click', function(){ setConsent('accepted'); });
     if(d) d.addEventListener('click', function(){ setConsent('declined'); });
   }catch(e){}
+})();
+</script>
+
+
+<script>
+(function(){
+  "use strict";
+  var cv = document.getElementById('radar');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var tip = document.getElementById('radar-tip');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var ROUTES = [
+    {label:'Services',    href:'/services'},
+    {label:'Work',        href:'/case-studies'},
+    {label:'Prezio',      href:'/prezio'},
+    {label:'CX Pulse',    href:'/cx-pulse'},
+    {label:'Team',        href:'/team'},
+    {label:'Blog',        href:'/blog'},
+    {label:'Contact',     href:'/contact'}
+  ];
+
+  var W=0,H=0,cx=0,cy=0,R=0,dpr=1;
+  var nodes=[], stars=[];
+  var mouse={x:-9999,y:-9999,inside:false};
+  var sweep=0, hoverIdx=-1;
+
+  function layout(){
+    dpr = Math.min(window.devicePixelRatio||1, 2);
+    var r = cv.getBoundingClientRect();
+    W = r.width; H = r.height;
+    cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    cx = W/2; cy = H/2;
+    R = Math.min(W,H)/2 - 26;
+
+    nodes = ROUTES.map(function(rt,i){
+      var ang = (i/ROUTES.length)*Math.PI*2 - Math.PI/2 + 0.22;
+      var rad = R*(0.45 + ((i%3)*0.18));
+      return {
+        label: rt.label, href: rt.href, ang: ang, rad: rad,
+        x: cx+Math.cos(ang)*rad, y: cy+Math.sin(ang)*rad,
+        found: 0
+      };
+    });
+
+    stars = [];
+    for(var i=0;i<26;i++){
+      var a=Math.random()*Math.PI*2, d=Math.random()*R;
+      stars.push({x:cx+Math.cos(a)*d, y:cy+Math.sin(a)*d, r:Math.random()*1.3+0.4, tw:Math.random()*Math.PI*2});
+    }
+  }
+
+  function angDiff(a,b){
+    var d = Math.abs(a-b) % (Math.PI*2);
+    return d > Math.PI ? Math.PI*2-d : d;
+  }
+
+  function draw(t){
+    ctx.clearRect(0,0,W,H);
+
+    // rings
+    ctx.strokeStyle = 'rgba(143,178,255,0.16)';
+    ctx.lineWidth = 1;
+    for(var k=1;k<=3;k++){
+      ctx.beginPath(); ctx.arc(cx,cy,R*(k/3),0,Math.PI*2); ctx.stroke();
+    }
+    // cross-hairs
+    ctx.strokeStyle='rgba(143,178,255,0.10)';
+    ctx.beginPath(); ctx.moveTo(cx-R,cy); ctx.lineTo(cx+R,cy);
+    ctx.moveTo(cx,cy-R); ctx.lineTo(cx,cy+R); ctx.stroke();
+
+    // twinkling background dots
+    stars.forEach(function(s){
+      var a = 0.18 + Math.sin(t/900 + s.tw)*0.12;
+      ctx.fillStyle='rgba(175,194,238,'+Math.max(0.05,a)+')';
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2); ctx.fill();
+    });
+
+    // sweep beam
+    if(!reduced) sweep += 0.012;
+    var beamAng = mouse.inside
+      ? Math.atan2(mouse.y-cy, mouse.x-cx)
+      : sweep;
+
+    var g = ctx.createRadialGradient(cx,cy,0,cx,cy,R);
+    g.addColorStop(0,'rgba(143,178,255,0.30)');
+    g.addColorStop(1,'rgba(143,178,255,0)');
+    ctx.save();
+    ctx.beginPath(); ctx.moveTo(cx,cy);
+    ctx.arc(cx,cy,R,beamAng-0.42,beamAng+0.02);
+    ctx.closePath(); ctx.fillStyle=g; ctx.fill();
+    ctx.restore();
+
+    // beam edge
+    ctx.strokeStyle='rgba(185,206,255,0.55)'; ctx.lineWidth=1.4;
+    ctx.beginPath(); ctx.moveTo(cx,cy);
+    ctx.lineTo(cx+Math.cos(beamAng)*R, cy+Math.sin(beamAng)*R); ctx.stroke();
+
+    // centre
+    ctx.fillStyle='#B9CEFF';
+    ctx.beginPath(); ctx.arc(cx,cy,3.2,0,Math.PI*2); ctx.fill();
+
+    // nodes
+    hoverIdx = -1;
+    nodes.forEach(function(n,i){
+      var lit = angDiff(beamAng, n.ang) < 0.40;
+      n.found = lit ? 1 : Math.max(0, n.found - 0.012);
+
+      var dx = mouse.x-n.x, dy = mouse.y-n.y;
+      var near = Math.sqrt(dx*dx+dy*dy) < 20;
+      if(near && mouse.inside){ hoverIdx = i; n.found = 1; }
+
+      var alpha = 0.22 + n.found*0.78;
+      var rad = near ? 6.5 : 4.2 + n.found*1.6;
+
+      if(n.found > 0.25){
+        ctx.fillStyle = 'rgba(143,178,255,'+(n.found*0.16)+')';
+        ctx.beginPath(); ctx.arc(n.x,n.y,rad+9,0,Math.PI*2); ctx.fill();
+      }
+      ctx.fillStyle = near ? '#FFFFFF' : 'rgba(185,206,255,'+alpha+')';
+      ctx.beginPath(); ctx.arc(n.x,n.y,rad,0,Math.PI*2); ctx.fill();
+
+      if(n.found > 0.45){
+        ctx.font = '600 11.5px Switzer, Inter, system-ui, sans-serif';
+        ctx.fillStyle = 'rgba(255,255,255,'+(n.found*0.92)+')';
+        ctx.textAlign = n.x > cx ? 'left' : 'right';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(n.label, n.x + (n.x>cx?12:-12), n.y);
+      }
+    });
+
+    cv.style.cursor = hoverIdx>=0 ? 'pointer' : 'crosshair';
+    if(tip){
+      tip.textContent = hoverIdx>=0
+        ? 'Go to ' + nodes[hoverIdx].label
+        : 'Move to sweep \u00b7 click a node to jump';
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  function pos(e){
+    var r = cv.getBoundingClientRect();
+    var p = e.touches ? e.touches[0] : e;
+    mouse.x = p.clientX - r.left;
+    mouse.y = p.clientY - r.top;
+    mouse.inside = true;
+  }
+  cv.addEventListener('mousemove', pos);
+  cv.addEventListener('touchmove', function(e){ pos(e); }, {passive:true});
+  cv.addEventListener('mouseleave', function(){ mouse.inside=false; mouse.x=mouse.y=-9999; });
+  cv.addEventListener('click', function(){
+    if(hoverIdx>=0) window.location.href = nodes[hoverIdx].href;
+  });
+
+  window.addEventListener('resize', layout);
+  layout();
+  requestAnimationFrame(draw);
 })();
 </script>
 
